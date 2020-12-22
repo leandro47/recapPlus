@@ -10,7 +10,7 @@ class User extends BaseController
     {
         $this->data['titlePage'] = 'Login';
     }
-    
+
     // ==================================================
 
     // Formulário de login
@@ -24,4 +24,15 @@ class User extends BaseController
 
     // ==================================================
 
+    //Recebe os dados de login
+    public function login()
+    {
+        if ($this->request->getMethod() === 'post') {
+            echo 'é post';
+            // $login    = $this->request->getPost("login", FILTER_SANITIZE_STRING);
+            // $password = $this->request->getPost("password", FILTER_SANITIZE_STRING);
+        } else {
+            echo $this->request->getMethod();
+        }
+    }
 }

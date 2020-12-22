@@ -42,5 +42,7 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// E.g.:
 		$session = \Config\Services::session();
+		$request = \Config\Services::request();
+		$validation =  \Config\Services::validation();
 	}
 }
