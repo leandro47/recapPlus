@@ -2,8 +2,16 @@
 
 namespace App\Controllers;
 
+use App\Validation\UserValidation;
+use App\Services\UserServices;
+
 class User extends BaseController
 {
+    /**
+     * Variables
+     */
+    protected $validate;
+
     // ==================================================
 
     public function __construct()
@@ -24,15 +32,25 @@ class User extends BaseController
 
     // ==================================================
 
-    //Recebe os dados de login
+    //Receive datas of login
     public function login()
     {
-        if ($this->request->getMethod() === 'post') {
-            echo 'é post';
-            // $login    = $this->request->getPost("login", FILTER_SANITIZE_STRING);
-            // $password = $this->request->getPost("password", FILTER_SANITIZE_STRING);
+        $this->validate = UserValidation::validateAuth($this->request);
+
+        if (!$this->validate) {
+
+            $this->data['validation'] = $this->validator;
         } else {
-            echo $this->request->getMethod();
+
+            $result = UserServices::auth($this->request);
+
+            if ($result) {
+
+                return redirect()->to(base_url('main'));
+            } else {
+
+                echo 'senha errada';
+            }
         }
     }
 }

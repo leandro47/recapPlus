@@ -6,10 +6,10 @@
                     <img src="<?= base_url('assets') ?>/images/icon/logo.png" alt="CoolAdmin">
                 </div>
                 <div class="login-form">
-                    <form method="POST" action="<?= base_url('login') ?>">
+                    <form method="POST" action="<?= base_url('/login') ?>">
                         <div class="form-group">
                             <label>Usuário</label>
-                            <input class="au-input au-input--full" type="login" name="email" placeholder="Email">
+                            <input class="au-input au-input--full" type="login" name="login" placeholder="Email">
                         </div>
                         <div class="form-group mb-4">
                             <label>Senha</label>

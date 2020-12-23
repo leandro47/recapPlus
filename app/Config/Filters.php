@@ -23,6 +23,7 @@ class Filters extends BaseConfig
 				'except' => [
 					'user',
 					'user/*',
+					'login'
 				]
 			],
 			// 'honeypot',
