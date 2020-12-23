@@ -7,22 +7,24 @@ use App\Repositories\UserRepository;
 
 class UserServices
 {
-    public static function auth(IncomingRequest $request): ?bool
+    public static function auth(IncomingRequest $request)
     {
         $login    = $request->getPost("login", FILTER_SANITIZE_STRING);
         $password = $request->getPost("password", FILTER_SANITIZE_STRING);
 
         $user = UserRepository::get($login, $password);
+         
+        return $user;
 
-        if ($user) {
-            session()->set([
-                'id'         => $user->id,
-                'name'       => $user->name,
-                'login'      => $user->login,
-                'isLoggedIn' => true
-            ]);
-            return true;
-        }
-        return false;
+        // if (true) {
+        //     session()->set([
+        //         'id'         => $user->id,
+        //         'name'       => $user->name,
+        //         'login'      => $user->login,
+        //         'isLoggedIn' => true
+        //     ]);
+        //     return true;
+        // }
+        // return false;
     }
 }

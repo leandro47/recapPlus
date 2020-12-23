@@ -44,13 +44,16 @@ class User extends BaseController
 
             $result = UserServices::auth($this->request);
 
-            if ($result) {
+            debugDatas($result);
+            // echo $result;
 
-                return redirect()->to(base_url('main'));
-            } else {
+            // if ($result) {
 
-                echo 'senha errada';
-            }
+            //     return redirect()->to(base_url('main'));
+            // } else {
+
+            //     echo 'senha errada';
+            // }
         }
     }
 }
