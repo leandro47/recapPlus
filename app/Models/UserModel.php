@@ -6,14 +6,31 @@ use CodeIgniter\Model;
 
 class UserModel extends Model
 {
-    protected $table = 'atendente';
-    // ==================================================
+    /**
+     * -------------------------------------------
+     * TABLE
+     * -------------------------------------------
+     */
+    protected $table = 'user';
 
-    public function getUser(string $login, string $pass)
-    {
-        $sql   = "SELECT * from cidades limit 1";
-        $query = $this->db->query($sql);
+    /**
+     * -------------------------------------------
+     * ALLOWED FIELDS
+     * -------------------------------------------
+     */
+    protected $allowedFields = [
+        'id',
+        'name',
+        'login',
+        'password',
+        'dataRegister',
+        'lastAccess'
+    ];
 
-        return $query->getRow();
-    }
+    /**
+     * -------------------------------------------
+     * RETURN TYPE DATAS
+     * -------------------------------------------
+     */
+    protected $returnType = 'object';
 }
