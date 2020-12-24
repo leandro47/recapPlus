@@ -43,8 +43,9 @@ class User extends BaseController
 
             $this->index();
         } else {
+            $userServices = new UserServices();
 
-            $result = UserServices::auth($this->request);
+            $result = $userServices->auth($this->request);
 
             if (!$result) {
 

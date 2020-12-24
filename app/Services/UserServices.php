@@ -9,12 +9,14 @@ use CodeIgniter\HTTP\Response;
 
 class UserServices
 {
-    public static function auth(IncomingRequest $request):? array
+    public function auth(IncomingRequest $request): ?array
     {
+        $this->userRepository = new UserRepository();
+
         $login    = $request->getPost("login", FILTER_SANITIZE_STRING);
         $password = $request->getPost("password", FILTER_SANITIZE_STRING);
 
-        $user = UserRepository::getAuth($login, $password);
+        $user = $this->userRepository->getAuth($login, $password);
 
         if ($user) {
             session()->set([
