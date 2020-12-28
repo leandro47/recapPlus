@@ -23,6 +23,9 @@
 <script src="<?= base_url('assets') ?>/vendor/vector-map/jquery.vmap.sampledata.js"></script>
 <script src="<?= base_url('assets') ?>/vendor/vector-map/jquery.vmap.world.js"></script>
 
+<!-- Custom js  -->
+<script src="<?= base_url('assets') ?>/custom/js/script.js"></script>
+
 <!-- Main JS-->
 <script src="<?= base_url('assets') ?>/js/main.js"></script>
 

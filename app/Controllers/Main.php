@@ -7,6 +7,7 @@ class Main extends BaseController
 	public function __construct()
 	{
 		$this->data['titlePage'] = 'Inicio';
+		$this->data['userName'] = session()->get('name');
 	}
 
 	public function index()

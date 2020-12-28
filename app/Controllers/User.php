@@ -26,7 +26,6 @@ class User extends BaseController
     {
         echo view('includes/head', $this->data);
         echo view('user/login', $this->data);
-        echo view('includes/footer', $this->data);
         echo view('includes/scripts', $this->data);
     }
 
@@ -40,11 +39,9 @@ class User extends BaseController
         if ($this->validate) {
 
             $this->data['validation'] = $this->validate;
-
             $this->index();
         } else {
             $userServices = new UserServices();
-
             $result = $userServices->auth($this->request);
 
             if (!$result) {

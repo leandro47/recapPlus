@@ -37,6 +37,9 @@
     <!-- Main CSS-->
     <link href="<?= base_url('assets') ?>/css/theme.css" rel="stylesheet" media="all">
 
+    <!-- Custom css  -->
+    <link href="<?= base_url('assets') ?>/custom/css/style.css" rel="stylesheet" media="all">
+
 </head>
 
 <body class="animsition">

@@ -27,7 +27,7 @@
                             <label>Senha</label>
                             <input class="au-input au-input--full" type="password" name="password" placeholder="Password" required>
                         </div>
-                        <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Entrar</button>
+                        <button class="au-btn au-btn--block btn-1 m-b-20" type="submit">Entrar</button>
                     </form>
                     <hr>
                     <div class="text-muted text-center"> &copy; RecapPlus <?php echo date('yy') ?> | Mallon</div>
