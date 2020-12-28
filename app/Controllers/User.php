@@ -37,23 +37,24 @@ class User extends BaseController
     {
         $this->validate = UserValidation::validateAuth($this->request);
 
-        if (!$this->validate) {
+        if ($this->validate) {
 
-            $this->data['validation'] = $this->validator;
+            $this->data['validation'] = $this->validate;
+
+            $this->index();
         } else {
+            $userServices = new UserServices();
 
-            $result = UserServices::auth($this->request);
+            $result = $userServices->auth($this->request);
 
-            debugDatas($result);
-            // echo $result;
+            if (!$result) {
 
-            // if ($result) {
+                return redirect()->to(base_url('main'));
+            } else {
 
-            //     return redirect()->to(base_url('main'));
-            // } else {
-
-            //     echo 'senha errada';
-            // }
+                $this->data['validation'] = $result;
+                $this->index();
+            }
         }
     }
 }

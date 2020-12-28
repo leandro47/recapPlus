@@ -7,31 +7,42 @@ use CodeIgniter\HTTP\Response;
 
 class UserValidation
 {
-    private static $validation_auth = [
-        'username' => [
-            'rules' => 'required|string|max_length[50]'
+    protected static $validation_auth = [
+        'login' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Usuário é obrigatório.'
+            ]
         ],
         'password' => [
-            'rules' => 'required|string'
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Senha é obrigatório.'
+            ]
         ],
     ];
 
-    public static function validateAuth(IncomingRequest $request): ?array
+    public static function validateAuth(IncomingRequest $request):? array
     {
         $validation =  \Config\Services::validation()->setRules(self::$validation_auth);
 
+        $valid = null;
+
         if (!$validation->withRequest($request)->run()) {
-            return [
+
+            $valid = [
                 'code'    => Response::HTTP_BAD_REQUEST,
-                'message' => self::treatValidationErrors(),
-                'data'    => []
+                'message' => self::treatValidationErrors(), 
+                'data'    => [
+                    'status' => 'danger'
+                ]
             ];
-        }
-        return null;
+        } 
+
+        return $valid;
     }
 
-    public static function treatValidationErrors(): string
-    {
+    public static function treatValidationErrors(): string {
         return implode(" ", array_values(\Config\Services::validation()->getErrors()));
     }
 }
