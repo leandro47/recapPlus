@@ -16,9 +16,11 @@ class UserServices
         $login    = $request->getPost("login", FILTER_SANITIZE_STRING);
         $password = $request->getPost("password", FILTER_SANITIZE_STRING);
 
-        $user = $this->userRepository->getAuth($login, $password);
+        $user = $this->userRepository->getUser($login);
 
-        if ($user) {
+        $hashVerify =  $this->verifyHash($user->password, $password);
+
+        if ($hashVerify) {
             session()->set([
                 'id'         => $user->id,
                 'name'       => $user->name,
@@ -34,5 +36,24 @@ class UserServices
                 'status' => 'warning'
             ]
         ];
+    }
+
+    /**
+     * Verify password with hash
+     * 
+     * @param $pwd - Hash of password bd
+     * @param $plainTextPwd - Password typed by user
+     * 
+     * @return bool - Result verify of hash
+     */
+    private function verifyHash(string $pwd, string $plainTextPwd): bool
+    {
+        $key = $_ENV['encryption.key'];
+
+        $pwd_peppered = hash_hmac("sha256", $plainTextPwd, $key);
+
+        if (password_verify($pwd_peppered, $pwd))
+            return true;
+        return false;
     }
 }

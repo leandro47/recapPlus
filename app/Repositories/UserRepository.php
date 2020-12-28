@@ -8,20 +8,12 @@ class UserRepository
 {
     protected $user;
 
-    public function __construct()
-    {
-        $this->user = new UserModel();
-    }
-
-    public function getAuth(string $login, string $password)
+    public function getUser(string $userName)
     {
         $user = new UserModel();
 
         return $user->where([
-            'login' => $login,
-            'password' => $password
-        ])
-        ->get()
-        ->getRow();
+            'login' => $userName
+        ])->get()->getRow();
     }
 }
