@@ -8,6 +8,7 @@ class Main extends BaseController
 	{
 		$this->data['titlePage'] = 'Inicio';
 		$this->data['userName'] = session()->get('name');
+		$this->data['login'] = session()->get('login');
 	}
 
 	public function index()
