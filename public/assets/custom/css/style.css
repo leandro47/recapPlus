@@ -5,4 +5,15 @@
 
 .btn-1:hover{
     background-color: rgb(32, 64, 81, 0.6);
+    color: white;
+}
+
+.btn-2{
+    color: white;
+    background-color: #3b6978;
+}
+
+.btn-2:hover{
+    background-color: rgb(59, 105, 120, 0.6);
+    color: white;
 }
