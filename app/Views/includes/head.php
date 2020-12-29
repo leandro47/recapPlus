@@ -21,6 +21,9 @@
     <link href="<?= base_url('assets') ?>/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="<?= base_url('assets') ?>/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
+    <!-- Toasts  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
     <!-- Bootstrap CSS-->
     <link href="<?= base_url('assets') ?>/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
@@ -32,7 +35,8 @@
     <link href="<?= base_url('assets') ?>/vendor/slick/slick.css" rel="stylesheet" media="all">
     <link href="<?= base_url('assets') ?>/vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="<?= base_url('assets') ?>/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-    <link href="<?= base_url('assets') ?>/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
+
+    <!-- DataTables  -->
     <link rel="stylesheet" href="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.css">
 
     <!-- Main CSS-->

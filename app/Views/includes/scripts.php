@@ -1,8 +1,10 @@
 <!-- Jquery JS-->
 <script src="<?= base_url('assets') ?>/vendor/jquery-3.2.1.min.js"></script>
+
 <!-- Bootstrap JS-->
 <script src="<?= base_url('assets') ?>/vendor/bootstrap-4.1/popper.min.js"></script>
 <script src="<?= base_url('assets') ?>/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+
 <!-- Vendor JS       -->
 <script src="<?= base_url('assets') ?>/vendor/slick/slick.min.js">
 </script>
@@ -18,20 +20,19 @@
 <script src="<?= base_url('assets') ?>/vendor/chartjs/Chart.bundle.min.js"></script>
 <script src="<?= base_url('assets') ?>/vendor/select2/select2.min.js">
 </script>
-<script src="<?= base_url('assets') ?>/vendor/vector-map/jquery.vmap.js"></script>
-<script src="<?= base_url('assets') ?>/vendor/vector-map/jquery.vmap.min.js"></script>
-<script src="<?= base_url('assets') ?>/vendor/vector-map/jquery.vmap.sampledata.js"></script>
-<script src="<?= base_url('assets') ?>/vendor/vector-map/jquery.vmap.world.js"></script>
 <script src="http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+<!-- Main JS-->
+<script src="<?= base_url('assets') ?>/js/main.js"></script>
+
+<!-- Toasts  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <!-- Custom js  -->
 <script src="<?= base_url('assets') ?>/custom/js/script.js"></script>
 
 <!-- Custom js by page  -->
-<script src="<?= base_url('assets') ?>/custom/js/uf_index.js"></script>
-
-<!-- Main JS-->
-<script src="<?= base_url('assets') ?>/js/main.js"></script>
+<script src="<?= base_url('assets') ?>/custom/js/tireSize_index.js"></script>
 
 </body>
 
