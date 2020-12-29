@@ -21,13 +21,13 @@
             <h4>Acesso rápido</h4>
         </div>
         <div class="col-sm-12 col-md-4 col-lg-4 text-center">
-            <a href="#" class="btn btn-2 btn-block" role="button" aria-pressed="true">Nova OS</a>
+            <a href="#" class="btn btn-2 btn-block mb-1" role="button" aria-pressed="true">Nova OS</a>
         </div>
         <div class="col-sm-12 col-md-4 col-lg-4 text-center">
-        <a href="#" class="btn btn-2 btn-block" role="button" aria-pressed="true">OS em aberto</a>
+        <a href="#" class="btn btn-2 btn-block mb-1" role="button" aria-pressed="true">OS em aberto</a>
         </div>
         <div class="col-sm-12 col-md-4 col-lg-4 text-center">
-        <a href="#" class="btn btn-2 btn-block" role="button" aria-pressed="true">Aprovação de pedidos</a>
+        <a href="#" class="btn btn-2 btn-block mb-1" role="button" aria-pressed="true">Aprovação de pedidos</a>
 
         </div>
     </div>
@@ -37,6 +37,4 @@
             <img src="<?= base_url('assets/images/pages/home.svg') ?>" class="img-fluid text-center" style="max-height: 350px;" alt="Responsive image">
         </div>
     </div>
-</div>
-
 </div>

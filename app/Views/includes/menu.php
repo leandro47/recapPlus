@@ -20,7 +20,7 @@
 
                 <!-- Inicio  -->
                 <li>
-                    <a href="index.html"><i class="fas fa-home"></i>Inicio</a>
+                    <a href="<?= base_url('main') ?>"><i class="fas fa-home"></i>Inicio</a>
                 </li>
 
                 <!-- DashBoard  -->
@@ -76,16 +76,10 @@
                         <i class="fas fa-plus-circle"></i>Cadastro</a>
                     <ul class="list-unstyled navbar-mobile-sub__list js-sub-list">
                         <li>
-                            <a href="index.html">Cidade</a>
-                        </li>
-                        <li>
-                            <a href="index2.html">UF</a>
-                        </li>
-                        <li>
                             <a href="index2.html">Forma de pagamento</a>
                         </li>
                         <li>
-                            <a href="index2.html">Medidas</a>
+                            <a href="<?= base_url('tireSize') ?>">Medidas</a>
                         </li>
                         <li>
                             <a href="index2.html">Banda</a>
@@ -146,7 +140,7 @@
             <ul class="list-unstyled navbar__list">
                 <!-- Inicio  -->
                 <li>
-                    <a href="index.html"><i class="fas fa-home"></i>Inicio</a>
+                    <a href="<?= base_url('main') ?>"><i class="fas fa-home"></i>Inicio</a>
                 </li>
 
                 <!-- DashBoard  -->
@@ -202,16 +196,10 @@
                         <i class="fas fa-plus-circle"></i>Cadastro</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="index.html">Cidade</a>
-                        </li>
-                        <li>
-                            <a href="index2.html">UF</a>
-                        </li>
-                        <li>
                             <a href="index2.html">Forma de pagamento</a>
                         </li>
                         <li>
-                            <a href="index2.html">Medidas</a>
+                            <a href="<?= base_url('tireSize') ?>">Medidas</a>
                         </li>
                         <li>
                             <a href="index2.html">Banda</a>

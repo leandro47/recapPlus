@@ -33,12 +33,17 @@
     <link href="<?= base_url('assets') ?>/vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="<?= base_url('assets') ?>/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
     <link href="<?= base_url('assets') ?>/vendor/vector-map/jqvmap.min.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.css">
 
     <!-- Main CSS-->
     <link href="<?= base_url('assets') ?>/css/theme.css" rel="stylesheet" media="all">
 
     <!-- Custom css  -->
     <link href="<?= base_url('assets') ?>/custom/css/style.css" rel="stylesheet" media="all">
+
+    <script>
+        const BASE_URL = "<?= base_url('') ?>"
+    </script>
 
 </head>
 
