@@ -1,11 +1,10 @@
 const toastOptions = {
-    "closeButton": false,
+    "closeButton": true,
     "debug": false,
-    "newestOnTop": false,
+    "newestOnTop": true,
     "progressBar": false,
-    "positionClass": "toast-bottom-center",
-    "preventDuplicates": false,
-    "onclick": null,
+    "positionClass": "toast-top-left",
+    "preventDuplicates": true,
     "showDuration": "300",
     "hideDuration": "1000",
     "timeOut": "5000",
@@ -14,4 +13,4 @@ const toastOptions = {
     "hideEasing": "linear",
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
-};
+}
