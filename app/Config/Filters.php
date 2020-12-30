@@ -18,7 +18,8 @@ class Filters extends BaseConfig
 		//Permission by Modules
 		'TireSizeFilter' => \App\Filters\TireSizeFilter::class,
 		'TireBandFilter' => \App\Filters\TireBandFilter::class,
-		'TireBrandFilter' => \App\Filters\TireBrandFilter::class
+		'TireBrandFilter' => \App\Filters\TireBrandFilter::class,
+		'FormPayFilter' => \App\Filters\FormPayFilter::class,
 
 	];
 
@@ -54,5 +55,6 @@ class Filters extends BaseConfig
 		'TireSizeFilter' => ['before' => ['TireSize', 'TireSize/*']],
 		'TireBandFilter' => ['before' => ['TireBand', 'TireBand/*']],
 		'TireBrandFilter' => ['before' => ['TireBrand', 'TireBrand/*']],
+		'FormPayFilter' => ['before' => ['FormPay', 'FormPay/*']],
 	];
 }

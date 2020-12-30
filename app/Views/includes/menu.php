@@ -76,16 +76,19 @@
                         <i class="fas fa-plus-circle"></i>Cadastro</a>
                     <ul class="list-unstyled navbar-mobile-sub__list js-sub-list">
                         <li>
-                            <a href="index2.html">Forma de pagamento</a>
+                            <a href="<?= base_url('client') ?>">Cliente</a>
                         </li>
                         <li>
-                            <a href="<?= base_url('tireSize') ?>">Medidas</a>
+                            <a href="<?= base_url('formPay') ?>">Forma de pagamento</a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url('tireSize') ?>">Medida</a>
                         </li>
                         <li>
                             <a href="<?= base_url('tireBand') ?>">Banda</a>
                         </li>
                         <li>
-                            <a href="<?= base_url('tireBrand') ?>">Marcas</a>
+                            <a href="<?= base_url('tireBrand') ?>">Marca</a>
                         </li>
                         <li>
                             <a href="index2.html">Metas Vendedor</a>
@@ -196,16 +199,19 @@
                         <i class="fas fa-plus-circle"></i>Cadastro</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="index2.html">Forma de pagamento</a>
+                            <a href="<?= base_url('client') ?>">Cliente</a>
                         </li>
                         <li>
-                            <a href="<?= base_url('tireSize') ?>">Medidas</a>
+                            <a href="<?= base_url('formPay') ?>">Forma de pagamento</a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url('tireSize') ?>">Medida</a>
                         </li>
                         <li>
                             <a href="<?= base_url('tireBand') ?>">Banda</a>
                         </li>
                         <li>
-                            <a href="<?= base_url('tireBrand') ?>">Marcas</a>
+                            <a href="<?= base_url('tireBrand') ?>">Marca</a>
                         </li>
                         <li>
                             <a href="index2.html">Metas Vendedor</a>
