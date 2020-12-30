@@ -1,16 +1,16 @@
-if ($('#tireSize_index').length) {
+if ($('#tireBand_index').length) {
 
     $(document).ready(function () {
-        requestTireSize();
+        requestTireBand();
     })
 
-    function requestTireSize() {
-        tableArea = $(`#tableTireSize`).DataTable({
+    function requestTireBand() {
+        tableArea = $(`#tableBand`).DataTable({
             sPaginationType: "full_numbers",
             destroy: true,
             responsive: false,
             ajax: {
-                url: `${BASE_URL}/tireSize/getAll`,
+                url: `${BASE_URL}/tireBand/getAll`,
                 dataType: "json",
                 cache: false,
                 dataSrc: (data) => {
@@ -49,8 +49,8 @@ if ($('#tireSize_index').length) {
                 render: function (data, type, row, meta) {
                     return `
                         <div class="btn-group btn-group-sm" role="group">
-                            <a class="btn btn-warning text-white" onclick="updateTireSize('${data.id}','${data.description}','${data.status}')"><i class="fas fa-pencil-alt"></i></a>
-                            <a class="btn btn-danger text-white" onclick="deleteTireSize('${data.id}','${data.description}','${data.status}')"><i class="fas fa-trash-alt"></i></a>
+                            <a class="btn btn-warning text-white" onclick="updateTireBand('${data.id}','${data.description}','${data.status}')"><i class="fas fa-pencil-alt"></i></a>
+                            <a class="btn btn-danger text-white" onclick="deleteTireBand('${data.id}','${data.description}','${data.status}')"><i class="fas fa-trash-alt"></i></a>
                          </div>`
                 }
             }
@@ -58,24 +58,24 @@ if ($('#tireSize_index').length) {
         })
     }
 
-    // Save tire size in the db
+    // Save tire Band in the db
     $(document).ready(function () {
-        $('#saveTireSize').submit(function () {
+        $('#saveTireBand').submit(function () {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/tireSize/insert`,
+                url: `${BASE_URL}/tireBand/insert`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {
 
-                    $('#modalNewSize').modal('hide');
-                    $('#tireSize').val('');
+                    $('#modalNewBand').modal('hide');
+                    $('#tireBand').val('');
 
                     toastr[data.data.status](data.message)
                     toastr.options = toastOptions;
 
-                    requestTireSize();
+                    requestTireBand();
                 },
                 error: function (data) {
                     console.log(data);
@@ -85,23 +85,23 @@ if ($('#tireSize_index').length) {
         });
     });
 
-    //edit Tire size in the db
-    function updateTireSize(id, description, status) {
+    //edit Tire Band in the db
+    function updateTireBand(id, description, status) {
 
         let ind = null;
         (status === 'yes') ? ind = 0 : ind = 1;
-        document.getElementById("statusTireSize").options[ind].selected = true;
+        document.getElementById("statusTireBand").options[ind].selected = true;
 
         $('#idUpdate').val(id);
         $('#description').val(description);
 
         $('#modalUpdate').modal('show');
 
-        $('#updateTireSize').submit(function () {
+        $('#updateTireBand').submit(function () {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/tireSize/update`,
+                url: `${BASE_URL}/tireBand/update`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {
@@ -112,7 +112,7 @@ if ($('#tireSize_index').length) {
                     toastr[data.data.status](data.message)
                     toastr.options = toastOptions;
 
-                    requestTireSize();
+                    requestTireBand();
                 },
                 error: function (data) {
                     console.log(data);
@@ -123,18 +123,18 @@ if ($('#tireSize_index').length) {
     }
 
     //Deleta uma série
-    function deleteTireSize(id, description) {
+    function deleteTireBand(id, description) {
 
         $('#idDelete').val(id);
         $('#descriptionDelete').html(description);
 
         $('#modalDelete').modal('show');
 
-        $('#deleteTireSize').submit(function () {
+        $('#deleteTireBand').submit(function () {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/tireSize/delete`,
+                url: `${BASE_URL}/tireBand/delete`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {
@@ -145,7 +145,7 @@ if ($('#tireSize_index').length) {
                     toastr[data.data.status](data.message)
                     toastr.options = toastOptions;
 
-                    requestTireSize();
+                    requestTireBand();
                 },
                 error: function (data) {
                     console.log(data);

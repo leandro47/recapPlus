@@ -82,10 +82,10 @@
                             <a href="<?= base_url('tireSize') ?>">Medidas</a>
                         </li>
                         <li>
-                            <a href="index2.html">Banda</a>
+                            <a href="<?= base_url('tireBand') ?>">Banda</a>
                         </li>
                         <li>
-                            <a href="index2.html">Marcas</a>
+                            <a href="<?= base_url('tireBrand') ?>">Marcas</a>
                         </li>
                         <li>
                             <a href="index2.html">Metas Vendedor</a>
@@ -202,10 +202,10 @@
                             <a href="<?= base_url('tireSize') ?>">Medidas</a>
                         </li>
                         <li>
-                            <a href="index2.html">Banda</a>
+                            <a href="<?= base_url('tireBand') ?>">Banda</a>
                         </li>
                         <li>
-                            <a href="index2.html">Marcas</a>
+                            <a href="<?= base_url('tireBrand') ?>">Marcas</a>
                         </li>
                         <li>
                             <a href="index2.html">Metas Vendedor</a>

@@ -16,7 +16,10 @@ class Filters extends BaseConfig
 		'IsLoggedFilter' => \App\Filters\IsLoggedFilter::class,
 
 		//Permission by Modules
-		'TireSizeFilter' => \App\Filters\TireSizeFilter::class
+		'TireSizeFilter' => \App\Filters\TireSizeFilter::class,
+		'TireBandFilter' => \App\Filters\TireBandFilter::class,
+		'TireBrandFilter' => \App\Filters\TireBrandFilter::class
+
 	];
 
 	// Always applied before every request
@@ -48,6 +51,8 @@ class Filters extends BaseConfig
 	//    'isLoggedIn' => ['before' => ['account/*', 'profiles/*']],
 	public $filters = [
 		'IsLoggedFilter' => ['before' => ['user', 'user/index', 'user/login']],
-		'TireSizeFilter' => ['before' => ['TireSize', 'TireSize/*']]
+		'TireSizeFilter' => ['before' => ['TireSize', 'TireSize/*']],
+		'TireBandFilter' => ['before' => ['TireBand', 'TireBand/*']],
+		'TireBrandFilter' => ['before' => ['TireBrand', 'TireBrand/*']],
 	];
 }
