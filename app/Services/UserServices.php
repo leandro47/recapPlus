@@ -38,6 +38,16 @@ class UserServices
         ];
     }
 
+    public static function getPermission(int $idModule)
+    {
+        $userRepository = new UserRepository();
+        $result = $userRepository->getPermission($idModule, session()->get('id'));
+
+        if ($result)
+            return true;
+        return false;
+    }
+
     /**
      * Verify password with hash
      * 

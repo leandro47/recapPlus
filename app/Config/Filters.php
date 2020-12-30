@@ -13,7 +13,10 @@ class Filters extends BaseConfig
 		'toolbar'        => \CodeIgniter\Filters\DebugToolbar::class,
 		'honeypot'       => \CodeIgniter\Filters\Honeypot::class,
 		'LoginFilter' 	 => \App\Filters\LoginFilter::class,
-		'IsLoggedFilter' => \App\Filters\IsLoggedFilter::class
+		'IsLoggedFilter' => \App\Filters\IsLoggedFilter::class,
+
+		//Permission by Modules
+		'TireSizeFilter' => \App\Filters\TireSizeFilter::class
 	];
 
 	// Always applied before every request
@@ -44,6 +47,7 @@ class Filters extends BaseConfig
 	// that they should run on, like:
 	//    'isLoggedIn' => ['before' => ['account/*', 'profiles/*']],
 	public $filters = [
-		'IsLoggedFilter' => ['before' => ['user', 'user/*']]
+		'IsLoggedFilter' => ['before' => ['user', 'user/index', 'user/login']],
+		'TireSizeFilter' => ['before' => ['TireSize', 'TireSize/*']]
 	];
 }

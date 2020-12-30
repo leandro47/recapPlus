@@ -16,4 +16,12 @@ class UserRepository
             'login' => $userName
         ])->get()->getRow();
     }
+
+    public function getPermission(int $idModule, int $idUser)
+    {
+        $user = new UserModel();
+
+        $sql = "SELECT id from permission where idModule = ? and idUser = ? and permission = ?";
+        return $user->query($sql, [$idModule, $idUser, 'yes'])->getRow();
+    }
 }

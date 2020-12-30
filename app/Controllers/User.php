@@ -54,4 +54,10 @@ class User extends BaseController
             }
         }
     }
+
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('main');
+    }
 }
