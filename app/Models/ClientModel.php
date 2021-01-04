@@ -4,14 +4,14 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UfModel extends Model
+class ClientModel extends Model
 {
     /**
      * -------------------------------------------
      * TABLE
      * -------------------------------------------
      */
-    protected $table = 'uf';
+    protected $table = 'client';
 
     /**
      * -------------------------------------------
@@ -20,10 +20,17 @@ class UfModel extends Model
      */
     protected $allowedFields = [
         'id',
-        'id_country',
-        'initials',
-        'name_uf',
-        'cod_ibge',
+        'idCity',
+        'cnpjCpf',
+        'name',
+        'type',
+        'cep',
+        'district',
+        'street',
+        'number',
+        'phone',
+        'phone2',
+        'dataRegister'
     ];
 
     /**

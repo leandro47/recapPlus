@@ -4,14 +4,14 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UfModel extends Model
+class CityModel extends Model
 {
     /**
      * -------------------------------------------
      * TABLE
      * -------------------------------------------
      */
-    protected $table = 'uf';
+    protected $table = 'city';
 
     /**
      * -------------------------------------------
@@ -20,9 +20,8 @@ class UfModel extends Model
      */
     protected $allowedFields = [
         'id',
-        'id_country',
-        'initials',
-        'name_uf',
+        'id_uf',
+        'name_city',
         'cod_ibge',
     ];
 

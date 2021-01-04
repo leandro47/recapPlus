@@ -36,6 +36,7 @@
 <script src="<?= base_url('assets') ?>/custom/js/tireBand_index.js"></script>
 <script src="<?= base_url('assets') ?>/custom/js/tireBrand_index.js"></script>
 <script src="<?= base_url('assets') ?>/custom/js/formPay_index.js"></script>
+<script src="<?= base_url('assets') ?>/custom/js/client_index.js"></script>
 
 </body>
 
