@@ -57,6 +57,7 @@ if ($('#client_index').length) {
                 render: function (data, type, row, meta) {
                     return `
                         <div class="btn-group btn-group-sm" role="group">
+                            <a class="btn btn-info text-white" onclick="viewClient('${data.id}','${data.idCity}','${data.cnpjCpf}','${data.name}','${data.type}','${data.cep}','${data.district}','${data.street}','${data.number}','${data.phone}','${data.phone2}','${data.dataRegister}')"><i class="fas fa-eye"></i></a>
                             <a class="btn btn-warning text-white" onclick="updateClient('${data.id}')"><i class="fas fa-pencil-alt"></i></a>
                             <a class="btn btn-danger text-white" onclick="deleteClient('${data.id}')"><i class="fas fa-trash-alt"></i></a>
                          </div>`
@@ -78,7 +79,17 @@ if ($('#client_index').length) {
                 success: function (data) {
 
                     $('#modalNewClient').modal('hide');
-                    $('#Client').val('');
+                    $('#cpfCnpj').val('');
+                    $('#razaoSocial').val('');
+                    $('#tipo').val('');
+                    $('#cep').val('');
+                    $('#uf').val('');
+                    $('#cidade').val('');
+                    $('#bairro').val('');
+                    $('#logradouro').val('');
+                    $('#numero').val('');
+                    $('#telefone1').val('');
+                    $('#telefone2').val('');
 
                     toastr[data.data.status](data.message)
                     toastr.options = toastOptions;
@@ -92,76 +103,6 @@ if ($('#client_index').length) {
             return false;
         });
     });
-
-    //edit Tire Band in the db
-    function updateFormPay(id, description, status) {
-
-        let ind = null;
-        (status === 'yes') ? ind = 0 : ind = 1;
-        document.getElementById("statusFormPay").options[ind].selected = true;
-
-        $('#idUpdate').val(id);
-        $('#description').val(description);
-
-        $('#modalUpdate').modal('show');
-
-        $('#updateFormPay').submit(function () {
-            var dados = $(this).serialize();
-            $.ajax({
-                type: "POST",
-                url: `${BASE_URL}/FormPay/update`,
-                data: dados,
-                dataType: 'json',
-                success: function (data) {
-
-                    $('#modalUpdate').modal('hide');
-                    $('#description').val('');
-
-                    toastr[data.data.status](data.message)
-                    toastr.options = toastOptions;
-
-                    requestFormPay();
-                },
-                error: function (data) {
-                    console.log(data);
-                }
-            });
-            return false;
-        });
-    }
-
-    //Deleta uma série
-    function deleteFormPay(id, description) {
-
-        $('#idDelete').val(id);
-        $('#descriptionDelete').html(description);
-
-        $('#modalDelete').modal('show');
-
-        $('#deleteFormPay').submit(function () {
-            var dados = $(this).serialize();
-            $.ajax({
-                type: "POST",
-                url: `${BASE_URL}/FormPay/delete`,
-                data: dados,
-                dataType: 'json',
-                success: function (data) {
-
-                    $('#modalDelete').modal('hide');
-                    $('#descriptionDelete').val('');
-
-                    toastr[data.data.status](data.message)
-                    toastr.options = toastOptions;
-
-                    requestFormPay();
-                },
-                error: function (data) {
-                    console.log(data);
-                }
-            });
-            return false;
-        });
-    }
 
     // API VIA CEP 
     function requestCep() {
@@ -280,4 +221,81 @@ if ($('#client_index').length) {
             }
         });
     }
+
+    function viewClient(id, idCity, cpfcnpj, name, type, cep, district, street, number, phone, phone2, dataRegister) {
+
+        $('#name').html(name);
+        $('#modalView').modal('show');
+    }
+
+    //edit Tire Band in the db
+    function updateFormPay(id, description, status) {
+
+        let ind = null;
+        (status === 'yes') ? ind = 0 : ind = 1;
+        document.getElementById("statusFormPay").options[ind].selected = true;
+
+        $('#idUpdate').val(id);
+        $('#description').val(description);
+
+        $('#modalUpdate').modal('show');
+
+        $('#updateFormPay').submit(function () {
+            var dados = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: `${BASE_URL}/FormPay/update`,
+                data: dados,
+                dataType: 'json',
+                success: function (data) {
+
+                    $('#modalUpdate').modal('hide');
+                    $('#description').val('');
+
+                    toastr[data.data.status](data.message)
+                    toastr.options = toastOptions;
+
+                    requestFormPay();
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+            return false;
+        });
+    }
+
+    //Deleta uma série
+    function deleteFormPay(id, description) {
+
+        $('#idDelete').val(id);
+        $('#descriptionDelete').html(description);
+
+        $('#modalDelete').modal('show');
+
+        $('#deleteFormPay').submit(function () {
+            var dados = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: `${BASE_URL}/FormPay/delete`,
+                data: dados,
+                dataType: 'json',
+                success: function (data) {
+
+                    $('#modalDelete').modal('hide');
+                    $('#descriptionDelete').val('');
+
+                    toastr[data.data.status](data.message)
+                    toastr.options = toastOptions;
+
+                    requestFormPay();
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+            return false;
+        });
+    }
+
 }

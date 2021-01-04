@@ -124,7 +124,31 @@
     </div>
 </div>
 
-<!-- Modal update tire FormPay  -->
+<!-- Modal View Client  -->
+<div class="modal fade" id="modalView" tabindex="-1" aria-labelledby="modalViewLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><i class="fas fa-eye"></i></i> &nbsp; <b id="name"></b></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                    </div>
+                    <div class="col-sm-12">
+                        <button type="button" class="btn btn-2" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal update Client  -->
 <div class="modal fade" id="modalUpdate" tabindex="-1" aria-labelledby="modalUpdateLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -165,9 +189,9 @@
         </div>
     </div>
 </div>
-<!-- End modal update tire FormPay  -->
+<!-- End modal update Client  -->
 
-<!-- Modal delete tire FormPay  -->
+<!-- Modal delete Client  -->
 <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalUpdateLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -198,4 +222,4 @@
         </div>
     </div>
 </div>
-<!-- End modal delete tire FormPay  -->
+<!-- End modal delete Client  -->
