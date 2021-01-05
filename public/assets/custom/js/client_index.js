@@ -91,8 +91,12 @@ if ($('#client_index').length) {
                     $('#telefone1').val('');
                     $('#telefone2').val('');
 
-                    toastr[data.data.status](data.message)
-                    toastr.options = toastOptions;
+                    Swal.fire({
+                        icon: data.data.status,
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
 
                     requestDatas();
                 },
@@ -263,8 +267,12 @@ if ($('#client_index').length) {
                     $('#modalDelete').modal('hide');
                     $('#descriptionDelete').val('');
 
-                    toastr[data.data.status](data.message)
-                    toastr.options = toastOptions;
+                    Swal.fire({
+                        icon: data.data.status,
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
 
                     requestDatas();
                 },
@@ -295,7 +303,7 @@ if ($('#client_index').length) {
         $('#updateTelefone2').val(phone2);
 
         $('#updateUf option').each(function () {
-            
+
             $(this).removeAttr('selected', true);
 
             if ($(this).attr('value') == initials) {
@@ -316,20 +324,15 @@ if ($('#client_index').length) {
                 data: dados,
                 dataType: 'json',
                 success: function (data) {
+                 
+                    Swal.fire({
+                        icon: data.data.status,
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
 
                     $('#modalUpdate').modal('hide');
-                    $('#idUpdate').val('');
-                    $('#updateCpfCnpj').val('');
-                    $('#updateRazaoSocial').val('');
-                    $('#updateCep').val('');
-                    $('#updateBairro').val('');
-                    $('#updateLogradouro').val('');
-                    $('#updateNumero').val('');
-                    $('#updateTelefone1').val('');
-                    $('#updateTelefone2').val('');
-
-                    toastr[data.data.status](data.message)
-                    toastr.options = toastOptions;
 
                     requestDatas();
                 },
@@ -428,7 +431,7 @@ if ($('#client_index').length) {
 
                 //Seleciona a possivel updateCidade correta
                 if (ibge !== null)
-                updateRequestCityByIbge(ibge)
+                    updateRequestCityByIbge(ibge)
             },
             error: function (data) {
 

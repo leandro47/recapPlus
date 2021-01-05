@@ -21,9 +21,6 @@
     <link href="<?= base_url('assets') ?>/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="<?= base_url('assets') ?>/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
-    <!-- Toasts  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-
     <!-- Bootstrap CSS-->
     <link href="<?= base_url('assets') ?>/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 

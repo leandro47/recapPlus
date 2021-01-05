@@ -72,8 +72,12 @@ if ($('#tireBand_index').length) {
                     $('#modalNewBand').modal('hide');
                     $('#tireBand').val('');
 
-                    toastr[data.data.status](data.message)
-                    toastr.options = toastOptions;
+                    Swal.fire({
+                        icon: data.data.status,
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
 
                     requestTireBand();
                 },
@@ -109,8 +113,12 @@ if ($('#tireBand_index').length) {
                     $('#modalUpdate').modal('hide');
                     $('#description').val('');
 
-                    toastr[data.data.status](data.message)
-                    toastr.options = toastOptions;
+                    Swal.fire({
+                        icon: data.data.status,
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
 
                     requestTireBand();
                 },
@@ -142,8 +150,12 @@ if ($('#tireBand_index').length) {
                     $('#modalDelete').modal('hide');
                     $('#descriptionDelete').val('');
 
-                    toastr[data.data.status](data.message)
-                    toastr.options = toastOptions;
+                    Swal.fire({
+                        icon: data.data.status,
+                        title: data.message,
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
 
                     requestTireBand();
                 },

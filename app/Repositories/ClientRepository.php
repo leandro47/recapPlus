@@ -47,7 +47,7 @@ class ClientRepository
 
     public function update(int $id, array $datas)
     {
-        return $$this->client->update($id, $datas);
+        return $this->client->update($id, $datas);
     }
 
     public function delete(int $id)

@@ -58,18 +58,21 @@ class ClientServices
 
     public function update(IncomingRequest $request): array
     {
-        $client =  new ClientRepository;
-
         $id = $request->getPost("idUpdate", FILTER_SANITIZE_STRING);
-        $description = $request->getPost("description", FILTER_SANITIZE_STRING);
-        $status = $request->getPost("statusFormPay", FILTER_SANITIZE_STRING);
 
-        $data = [
-            'description' => $description,
-            'status' => $status
-        ];
+        $this->dataIns['idCity'] = $request->getPost("updateCidade", FILTER_SANITIZE_STRING);
+        $this->dataIns['cnpjCpf'] = $request->getPost("updateCpfCnpj", FILTER_SANITIZE_STRING);
+        $this->dataIns['name'] = $request->getPost("updateRazaoSocial", FILTER_SANITIZE_STRING);
+        $this->dataIns['type'] = $request->getPost("updateTipo", FILTER_SANITIZE_STRING);
+        $this->dataIns['cep'] = $request->getPost("updateCep", FILTER_SANITIZE_STRING);
+        $this->dataIns['district'] = $request->getPost("updateBairro", FILTER_SANITIZE_STRING);
+        $this->dataIns['street'] = $request->getPost("updateLogradouro", FILTER_SANITIZE_STRING);
+        $this->dataIns['number'] = $request->getPost("updateNumero", FILTER_SANITIZE_STRING);
+        $this->dataIns['phone'] = $request->getPost("updateTelefone1", FILTER_SANITIZE_STRING);
+        $this->dataIns['phone2'] = $request->getPost("updateTelefone2", FILTER_SANITIZE_STRING);
 
-        if ($client->update($id, $data)) {
+
+        if ($this->client->update($id, $this->dataIns)) {
             return  [
                 'code'    => Response::HTTP_OK,
                 'message' => 'Atualizado com sucesso',

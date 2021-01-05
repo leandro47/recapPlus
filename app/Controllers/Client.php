@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Services\ClientServices;
 use App\Validation\ClientValidation;
 use App\Services\UfServices;
-use App\Services\CityServices;
 
 class Client extends BaseController
 {
@@ -50,13 +49,12 @@ class Client extends BaseController
 
     public function update()
     {
-        $ClientServices = new ClientServices();
         $this->validate = ClientValidation::validateUpdate($this->request);
 
         if ($this->validate)
             response($this->validate);
         else
-            response($ClientServices->update($this->request));
+            response($this->ClientServices->update($this->request));
     }
 
     public function delete()

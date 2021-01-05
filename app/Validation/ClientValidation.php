@@ -68,19 +68,49 @@ class ClientValidation
         'idUpdate' => [
             'rules' => 'required',
             'errors' => [
-                'required' => 'Campo ID e obrigatorio'
+                'required' => 'Campo idUpdate e obrigatorio'
             ]
         ],
-        'description' => [
+        'updateRazaoSocial' => [
             'rules' => 'required',
             'errors' => [
-                'required' => 'Campo forma e obrigatorio'
+                'required' => 'Campo updateRazaoSocial e obrigatorio'
             ]
         ],
-        'statusClient' => [
+        'updateCep' => [
             'rules' => 'required',
             'errors' => [
-                'required' => 'Campo Status e obrigatorio'
+                'required' => 'Campo updateCep e obrigatorio'
+            ]
+        ],
+        'updateUf' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Campo updateUf e obrigatorio'
+            ]
+        ],
+        'updateCidade' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Campo updateCidade e obrigatorio'
+            ]
+        ],
+        'updateBairro' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Campo updateBairro e obrigatorio'
+            ]
+        ],
+        'updateLogradouro' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Campo updateLogradouro e obrigatorio'
+            ]
+        ],
+        'updateTelefone1' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Campo updateTelefone1 e obrigatorio'
             ]
         ],
     ];

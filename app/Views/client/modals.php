@@ -247,7 +247,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="updateTipo" class="control-label">Tipo<span> <strong>*</strong></span></label>
-                                <select class="custom-select" name="tipo" id="updateTipo">
+                                <select class="custom-select" name="updateTipo" id="updateTipo">
                                     <option value="fis">Fisica</option>
                                     <option value="jur">Juridica</option>
                                 </select>
