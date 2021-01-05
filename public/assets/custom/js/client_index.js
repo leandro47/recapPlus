@@ -57,7 +57,7 @@ if ($('#client_index').length) {
                 render: function (data, type, row, meta) {
                     return `
                         <div class="btn-group btn-group-sm" role="group">
-                            <a class="btn btn-info text-white" onclick="viewClient('${data.id}','${data.idCity}','${data.cnpjCpf}','${data.name}','${data.type}','${data.cep}','${data.district}','${data.street}','${data.number}','${data.phone}','${data.phone2}','${data.dataRegister}')"><i class="fas fa-eye"></i></a>
+                            <a class="btn btn-info text-white" onclick="viewClient('${data.id}','${data.name_city}','${data.cnpjCpf}','${data.name}','${data.type}','${data.cep}','${data.district}','${data.street}','${data.number}','${data.phone}','${data.phone2}','${data.dataRegister}')"><i class="fas fa-eye"></i></a>
                             <a class="btn btn-warning text-white" onclick="updateClient('${data.id}')"><i class="fas fa-pencil-alt"></i></a>
                             <a class="btn btn-danger text-white" onclick="deleteClient('${data.id}')"><i class="fas fa-trash-alt"></i></a>
                          </div>`
@@ -222,9 +222,23 @@ if ($('#client_index').length) {
         });
     }
 
-    function viewClient(id, idCity, cpfcnpj, name, type, cep, district, street, number, phone, phone2, dataRegister) {
+    function viewClient(id, nameCity, cpfcnpj, name, type, cep, district, street, number, phone, phone2, dataRegister) {
 
-        $('#name').html(name);
+        $('#viewName').html(name);
+        $('#viewId').html(id);
+        $('#viewCpfCnpj').html(cpfcnpj);
+        $('#viewType').html(type);
+        $('#viewDataRegister').html(dataRegister);
+
+        $('#ViewCep').html(cep);
+        $('#viewCity').html(nameCity);
+        $('#viewDistrict').html(district);
+        $('#viewStreet').html(street);
+        $('#viewNumber').html(number);
+
+        $('#viewPhone1').html(phone);
+        $('#viewPhone2').html(phone2);
+       
         $('#modalView').modal('show');
     }
 

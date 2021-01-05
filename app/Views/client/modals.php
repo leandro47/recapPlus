@@ -129,17 +129,82 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title"><i class="fas fa-eye"></i></i> &nbsp; <b id="name"></b></h4>
+                <h4 class="modal-title"><i class="fas fa-eye"></i></i> &nbsp; Visualizar</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="row">
+                <div class="row text-uppercase">
                     <div class="col-sm-12">
+                        <p class="mb-2 text-center text-muted">Empresa</p>
+                        <table class="table table-bordered table-striped">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">ID</th>
+                                    <td id="viewId"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Razão Social / Nome</th>
+                                    <td id="viewName"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">CNPJ / CPF</th>
+                                    <td id="viewCpfCnpj"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Tipo</th>
+                                    <td id="viewType"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Data Registro</th>
+                                    <td id="viewDataRegister"></td>
+                                </tr>
+                            </tbody>
+                        </table>
 
+                        <p class="mb-2 mt-3 text-center text-muted">Endereço</p>
+                        <table class="table table-bordered table-striped">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Cep</th>
+                                    <td id="ViewCep"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Cidade</th>
+                                    <td id="viewCity"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Bairro</th>
+                                    <td id="viewDistrict"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Rua</th>
+                                    <td id="viewStreet"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Número</th>
+                                    <td id="viewNumber"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p class="mb-2 mt-3 text-center text-muted">Contato</p>
+                        <table class="table table-bordered table-striped">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Telefone 1</th>
+                                    <td id="viewPhone1"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Telefone 2</th>
+                                    <td id="viewPhone2"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <hr>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 mt-3">
                         <button type="button" class="btn btn-2" data-dismiss="modal">OK</button>
                     </div>
                 </div>
