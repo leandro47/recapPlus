@@ -90,11 +90,9 @@ class ClientServices
 
     public function delete(IncomingRequest $request): array
     {
-        $client =  new ClientRepository;
-
         $id = $request->getPost("idDelete", FILTER_SANITIZE_STRING);
 
-        if ($client->delete($id)) {
+        if ( $this->client->delete($id)) {
             return  [
                 'code'    => Response::HTTP_OK,
                 'message' => 'Deletado com sucesso',

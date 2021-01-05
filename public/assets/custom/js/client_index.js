@@ -58,8 +58,8 @@ if ($('#client_index').length) {
                     return `
                         <div class="btn-group btn-group-sm" role="group">
                             <a class="btn btn-info text-white" onclick="viewClient('${data.id}','${data.name_city}','${data.cnpjCpf}','${data.name}','${data.type}','${data.cep}','${data.district}','${data.street}','${data.number}','${data.phone}','${data.phone2}','${data.dataRegister}')"><i class="fas fa-eye"></i></a>
-                            <a class="btn btn-warning text-white" onclick="updateClient('${data.id}')"><i class="fas fa-pencil-alt"></i></a>
-                            <a class="btn btn-danger text-white" onclick="deleteClient('${data.id}')"><i class="fas fa-trash-alt"></i></a>
+                            <a class="btn btn-warning text-white" onclick="updateClient('${data.id}','${data.name_city}','${data.cnpjCpf}','${data.name}','${data.type}','${data.cep}','${data.district}','${data.street}','${data.number}','${data.phone}','${data.phone2}','${data.initials}','${data.cod_ibge}')"><i class="fas fa-pencil-alt"></i></a>
+                            <a class="btn btn-danger text-white" onclick="deleteClient('${data.id}','${data.name}')"><i class="fas fa-trash-alt"></i></a>
                          </div>`
                 }
             }
@@ -222,6 +222,7 @@ if ($('#client_index').length) {
         });
     }
 
+    // Visualiza Cliente 
     function viewClient(id, nameCity, cpfcnpj, name, type, cep, district, street, number, phone, phone2, dataRegister) {
 
         $('#viewName').html(name);
@@ -238,60 +239,23 @@ if ($('#client_index').length) {
 
         $('#viewPhone1').html(phone);
         $('#viewPhone2').html(phone2);
-       
+
         $('#modalView').modal('show');
     }
 
-    //edit Tire Band in the db
-    function updateFormPay(id, description, status) {
-
-        let ind = null;
-        (status === 'yes') ? ind = 0 : ind = 1;
-        document.getElementById("statusFormPay").options[ind].selected = true;
-
-        $('#idUpdate').val(id);
-        $('#description').val(description);
-
-        $('#modalUpdate').modal('show');
-
-        $('#updateFormPay').submit(function () {
-            var dados = $(this).serialize();
-            $.ajax({
-                type: "POST",
-                url: `${BASE_URL}/FormPay/update`,
-                data: dados,
-                dataType: 'json',
-                success: function (data) {
-
-                    $('#modalUpdate').modal('hide');
-                    $('#description').val('');
-
-                    toastr[data.data.status](data.message)
-                    toastr.options = toastOptions;
-
-                    requestFormPay();
-                },
-                error: function (data) {
-                    console.log(data);
-                }
-            });
-            return false;
-        });
-    }
-
-    //Deleta uma série
-    function deleteFormPay(id, description) {
+    //Deleta cliente
+    function deleteClient(id, description) {
 
         $('#idDelete').val(id);
         $('#descriptionDelete').html(description);
 
         $('#modalDelete').modal('show');
 
-        $('#deleteFormPay').submit(function () {
+        $('#deleteClient').submit(function () {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/FormPay/delete`,
+                url: `${BASE_URL}/client/delete`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {
@@ -302,7 +266,7 @@ if ($('#client_index').length) {
                     toastr[data.data.status](data.message)
                     toastr.options = toastOptions;
 
-                    requestFormPay();
+                    requestDatas();
                 },
                 error: function (data) {
                     console.log(data);
@@ -312,4 +276,186 @@ if ($('#client_index').length) {
         });
     }
 
+    //Atualia Cliente
+    function updateClient(id, nameCity, cpfcnpj, name, type, cep, district, street, number, phone, phone2, initials, cod_ibge) {
+
+        let ind = null;
+        (type === 'fis') ? ind = 0 : ind = 1;
+        document.getElementById("updateTipo").options[ind].selected = true;
+
+        //Paste datas in inputs
+        $('#idUpdate').val(id);
+        $('#updateCpfCnpj').val(cpfcnpj);
+        $('#updateRazaoSocial').val(name);
+        $('#updateCep').val(cep);
+        $('#updateBairro').val(district);
+        $('#updateLogradouro').val(street);
+        $('#updateNumero').val(number);
+        $('#updateTelefone1').val(phone);
+        $('#updateTelefone2').val(phone2);
+
+        $('#updateUf option').each(function () {
+            
+            $(this).removeAttr('selected', true);
+
+            if ($(this).attr('value') == initials) {
+                $(this).attr('selected', true);
+            }
+        });
+
+        updateRequestCitybyUf(initials, cod_ibge)
+
+
+        $('#modalUpdate').modal('show');
+
+        $('#updateClient').submit(function () {
+            var dados = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: `${BASE_URL}/Client/update`,
+                data: dados,
+                dataType: 'json',
+                success: function (data) {
+
+                    $('#modalUpdate').modal('hide');
+                    $('#idUpdate').val('');
+                    $('#updateCpfCnpj').val('');
+                    $('#updateRazaoSocial').val('');
+                    $('#updateCep').val('');
+                    $('#updateBairro').val('');
+                    $('#updateLogradouro').val('');
+                    $('#updateNumero').val('');
+                    $('#updateTelefone1').val('');
+                    $('#updateTelefone2').val('');
+
+                    toastr[data.data.status](data.message)
+                    toastr.options = toastOptions;
+
+                    requestDatas();
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+            return false;
+        });
+    }
+
+    // API VIA CEP 
+    function updateRequestCep() {
+        let cep = document.getElementById('updateCep');
+        let bairro = document.getElementById('updateBairro');
+        let logradouro = document.getElementById('updateLogradouro');
+        let ufInput = document.getElementById('updateUf');
+        let cityInput = document.getElementById('updateCidade');
+
+        if (cep.value === '') {
+            bairro.value = '';
+            logradouro.value = '';
+            ufInput.value = '';
+            cityInput.value = '';
+        }
+        else {
+            $.ajax({
+                type: "GET",
+                url: `https://viacep.com.br/ws/${cep.value}/json/`,
+                success: function (data) {
+
+                    if (!data.erro == true) {
+
+                        updateRequestUf(data.uf, data.ibge);
+                        bairro.value = data.bairro;
+                        logradouro.value = data.logradouro;
+                    }
+                    else {
+                        bairro.value = '';
+                        logradouro.value = '';
+                    }
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+    }
+
+    function updateRequestUf(uf, ibge = null) {
+
+        let ufInput = document.getElementById('updateUf');
+
+        $.ajax({
+            type: "GET",
+            url: `${BASE_URL}/Uf/getByInitials/${uf}`,
+            dataType: 'json',
+            success: function (data) {
+
+                $('#updateUf option').each(function () {
+
+                    if ($(this).attr('value') == data[0]['initials']) {
+                        $(this).attr('selected', true);
+                    }
+                });
+
+                updateRequestCitybyUf(uf, ibge);
+            },
+            error: function (data) {
+                ufInput.value = '';
+            }
+        });
+    }
+
+    function updateRequestCitybyUf(uf = null, ibge = null) {
+
+        if (uf === null) {
+            uf = $("#updateUf option:selected").val();
+        }
+
+        $.ajax({
+            type: "GET",
+            url: `${BASE_URL}/City/getByUf/${uf}`,
+            dataType: 'json',
+            success: function (data) {
+
+                //Preeche os estados com a cidades
+                $("#updateCidade option").remove();
+
+                data.map(({
+                    id,
+                    name_city
+                }) => {
+                    $('#updateCidade').append(`<option value='${id}'>${name_city}</option>`);
+                });
+
+                //Seleciona a possivel updateCidade correta
+                if (ibge !== null)
+                updateRequestCityByIbge(ibge)
+            },
+            error: function (data) {
+
+            }
+        });
+    }
+
+    function updateRequestCityByIbge(ibge) {
+
+        let cityInput = document.getElementById('updateCidade');
+
+        $.ajax({
+            type: "GET",
+            url: `${BASE_URL}/City/getByIbge/${ibge}`,
+            dataType: 'json',
+            success: function (data) {
+
+                $('#updateCidade option').each(function () {
+
+                    if ($(this).attr('value') == data[0]['id']) {
+                        $(this).attr('selected', true);
+                    }
+                });
+            },
+            error: function (data) {
+                cityInput.value = '';
+            }
+        });
+    }
 }

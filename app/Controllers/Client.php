@@ -61,8 +61,7 @@ class Client extends BaseController
 
     public function delete()
     {
-        $ClientServices = new ClientServices();
-        response($ClientServices->delete($this->request));
+        response($this->ClientServices->delete($this->request));
     }
 
     // ==================================================
