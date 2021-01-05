@@ -17,7 +17,6 @@ class Client extends BaseController
         $this->data['login'] = session()->get('login');
 
         $this->ClientServices = new ClientServices();
-
     }
 
     public function index()
