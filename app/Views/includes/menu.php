@@ -48,7 +48,7 @@
                         <i class="fas fa-clipboard-list"></i>Ordem Serviço</a>
                     <ul class="list-unstyled navbar-mobile-sub__list js-sub-list">
                         <li>
-                            <a href="index.html">Novo</a>
+                            <a href="<?= base_url('newOrderService') ?>">Novo</a>
                         </li>
                         <li>
                             <a href="index2.html">Abertas</a>
@@ -171,7 +171,7 @@
                         <i class="fas fa-clipboard-list"></i>Ordem Serviço</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="index.html">Novo</a>
+                            <a href="<?= base_url('newOrderService') ?>">Novo</a>
                         </li>
                         <li>
                             <a href="index2.html">Abertas</a>

@@ -61,6 +61,11 @@ class Client extends BaseController
         response($this->ClientServices->delete($this->request));
     }
 
+    public function getClientByNameCpf(string $data = "")
+    {
+        response($this->ClientServices->getClientByNameCpf($data));
+    }
+
     // ==================================================
     // Private functions
     // ==================================================

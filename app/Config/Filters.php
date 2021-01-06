@@ -21,7 +21,7 @@ class Filters extends BaseConfig
 		'TireBrandFilter' => \App\Filters\TireBrandFilter::class,
 		'FormPayFilter' => \App\Filters\FormPayFilter::class,
 		'ClientFilter' => \App\Filters\ClientFilter::class,
-
+		'OrderServiceFilter' => \App\Filters\OrderServiceFilter::class,
 	];
 
 	// Always applied before every request
@@ -58,5 +58,6 @@ class Filters extends BaseConfig
 		'TireBrandFilter' => ['before' => ['TireBrand', 'TireBrand/*']],
 		'FormPayFilter' => ['before' => ['FormPay', 'FormPay/*']],
 		'ClientFilter' => ['before' => ['Client', 'Client/*']],
+		'OrderServiceFilter' => ['before' => ['OrderService', 'OrderService/*', 'newOrderService']],
 	];
 }

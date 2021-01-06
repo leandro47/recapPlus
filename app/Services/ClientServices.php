@@ -13,13 +13,11 @@ class ClientServices
     function __construct()
     {
         $this->client =  new ClientRepository;
-        
     }
 
     public function getAll(): ?array
     {
-        $client =  new ClientRepository;
-        return $client->geAll();
+        return $this->client->geAll();
     }
 
     public function insert(IncomingRequest $request): array
@@ -95,7 +93,7 @@ class ClientServices
     {
         $id = $request->getPost("idDelete", FILTER_SANITIZE_STRING);
 
-        if ( $this->client->delete($id)) {
+        if ($this->client->delete($id)) {
             return  [
                 'code'    => Response::HTTP_OK,
                 'message' => 'Deletado com sucesso',
@@ -112,5 +110,18 @@ class ClientServices
                 ]
             ];
         }
+    }
+
+    public function getClientByNameCpf(string $datas): array
+    {
+        if ($datas === "")
+            return [];
+
+        return $this->client->getClientByNameCpf($datas);
+    }
+
+    public function getById(int $id): ?object
+    {
+        return $this->client->getbyId($id);
     }
 }

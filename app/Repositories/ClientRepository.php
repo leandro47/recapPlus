@@ -40,6 +40,14 @@ class ClientRepository
         return $this->client->query($sql)->getResult();
     }
 
+    public function getClientByNameCpf(string $data)
+    {
+        $this->client->like('cnpjCpf', $data);
+        $this->client->orLike('name', $data);
+
+        return $this->client->get()->getResult();
+    }
+
     public function insert(array $data)
     {
         return $this->client->insert($data);
@@ -53,5 +61,10 @@ class ClientRepository
     public function delete(int $id)
     {
         return $this->client->delete($id);
+    }
+
+    public function getbyId(int $id)
+    {
+        return $this->client->where('id', $id)->get()->getRow();
     }
 }
