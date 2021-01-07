@@ -8,20 +8,21 @@ class UserRepository
 {
     protected $user;
 
+    function __construct()
+    {
+        $this->user = new UserModel();
+    }
+
     public function getUser(string $userName)
     {
-        $user = new UserModel();
-
-        return $user->where([
+        return $this->user->where([
             'login' => $userName
         ])->get()->getRow();
     }
 
     public function getPermission(int $idModule, int $idUser)
     {
-        $user = new UserModel();
-
         $sql = "SELECT id from permission where idModule = ? and idUser = ? and permission = ?";
-        return $user->query($sql, [$idModule, $idUser, 'yes'])->getRow();
+        return $this->user->query($sql, [$idModule, $idUser, 'yes'])->getRow();
     }
 }

@@ -35,15 +35,16 @@
                                 <div class="card-body text-secondary">
                                     <div class="row">
                                         <div class="col-sm-12 text-right">
-                                            <a href="#!" class="btn btn-danger btn-sm disabled remove_field" role="button" aria-pressed="true"><i class="fas fa-trash-alt"></i> Remover</a>
+                                            <a href="#!" class="btn btn-danger btn-sm disabled remove_field" onclick="removeField('1')" role="button" aria-pressed="true"><i class="fas fa-trash-alt"></i> Remover</a>
                                         </div>
 
                                         <div class="col-sm-12 col-md-6 col-lg-3">
                                             <div class="form-group">
                                                 <label for="tireBrand" class="control-label"> Marca <span> <strong>*</strong></span></label>
                                                 <select class="custom-select" name="tireBrand1" id="tireBrand1">
-                                                    <option value="yes">Ativo</option>
-                                                    <option value="no">Inativo</option>
+                                                    <?php foreach ($brand as $item) : ?>
+                                                        <option value="<?= $item->id ?>"><?= $item->description ?></option>
+                                                    <?php endforeach; ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -52,8 +53,9 @@
                                             <div class="form-group">
                                                 <label for="tireBand1" class="control-label"> Banda <span> <strong>*</strong></span></label>
                                                 <select class="custom-select" name="tireBand1" id="tireBand1">
-                                                    <option value="yes">Ativo</option>
-                                                    <option value="no">Inativo</option>
+                                                    <?php foreach ($band as $item) : ?>
+                                                        <option value="<?= $item->id ?>"><?= $item->description ?></option>
+                                                    <?php endforeach; ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -62,8 +64,9 @@
                                             <div class="form-group">
                                                 <label for="tireSize1" class="control-label"> Medida <span> <strong>*</strong></span></label>
                                                 <select class="custom-select" name="tireSize1" id="tireSize1">
-                                                    <option value="yes">Ativo</option>
-                                                    <option value="no">Inativo</option>
+                                                    <?php foreach ($size as $item) : ?>
+                                                        <option value="<?= $item->id ?>"><?= $item->description ?></option>
+                                                    <?php endforeach; ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -129,10 +132,47 @@
                     <div class="card-header text-center">Forma de pagamento</div>
                     <div class="card-body">
                         <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="formPay" class="control-label"> Forma de pagamento <span> <strong>*</strong></span></label>
+                                    <select class="custom-select" name="formPay" id="formPay">
+                                        <?php foreach ($formPay as $item) : ?>
+                                            <option value="<?= $item->id ?>"><?= $item->description ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="customFormPay" class="control-label"> Especial</label>
+                                    <input type="text" class="form-control" id="customFormPay" name="customFormPay" placeholder="Customizado">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-light mb-3" style="max-width: 100rem;">
+                    <div class="card-header text-center">Outras informações</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="deliveryDate" class="control-label">Entrega <span> <strong>*</strong></span></label>
+                                    <input type="date" class="form-control" id="deliveryDate" name="deliveryDate" required placeholder="Customizado">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="sellerObservation" class="control-label">Observação</label>
+                                    <div class="input-group">
+                                        <textarea class="form-control" name="sellerObservation" id="sellerObservation"></textarea>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-sm-12 text-right">
                                 <hr>
                                 <button type="submit" class="btn btn-success"><i class="fas fa-check-circle"></i> Criar OS</button>
-
                             </div>
                         </div>
                     </div>

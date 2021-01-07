@@ -10,10 +10,20 @@ class TireBandServices
 {
     protected $tireBand;
 
+    
+    function __construct()
+    {
+        $this->tireBand =  new TireBandRepository;
+    }
+
     public function getAll(): ?array
     {
-        $tireBand =  new TireBandRepository;
-        return $tireBand->geAll();
+        return $this->tireBand->geAll();
+    }
+
+    public function getAtives(): ?array
+    {
+        return $this->tireBand->getAtives();
     }
 
     public function insert(IncomingRequest $request): array

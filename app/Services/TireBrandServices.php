@@ -10,10 +10,19 @@ class TireBrandServices
 {
     protected $tireBrand;
 
+    function __construct()
+    {
+        $this->tireBrand =  new TireBrandRepository;
+    }
+
     public function getAll(): ?array
     {
-        $tireBrand =  new TireBrandRepository;
-        return $tireBrand->geAll();
+        return $this->tireBrand->geAll();
+    }
+
+    public function getAtives(): ?array
+    {
+        return $this->tireBrand->getAtives();
     }
 
     public function insert(IncomingRequest $request): array

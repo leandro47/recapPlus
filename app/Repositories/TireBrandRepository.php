@@ -6,27 +6,35 @@ use App\Models\TireBrandModel;
 
 class TireBrandRepository
 {
+    function __construct()
+    {
+        $this->tireBrand = new TireBrandModel();
+    }
+
     public function geAll()
     {
-        $tireBrand = new TireBrandModel();
-        return $tireBrand->get()->getResult();
+        return $this->tireBrand->get()->getResult();
+    }
+
+    public function getAtives()
+    {
+        return $this->tireBrand->where([
+            'status' => 'yes'
+        ])->get()->getResult();
     }
 
     public function insert(array $data)
     {
-        $tireBrand = new TireBrandModel();
-        return $tireBrand->insert($data);
+        return $this->tireBrand->insert($data);
     }
 
     public function update(int $id, array $datas)
     {
-        $tireBrand = new TireBrandModel();
-        return $tireBrand->update($id, $datas);
+        return $this->tireBrand->update($id, $datas);
     }
 
     public function delete(int $id)
     {
-        $tireBrand = new TireBrandModel();
-        return $tireBrand->delete($id);
+        return $this->tireBrand->delete($id);
     }
 }

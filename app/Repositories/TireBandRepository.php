@@ -6,27 +6,34 @@ use App\Models\TireBandModel;
 
 class TireBandRepository
 {
+    function __construct()
+    {
+        $this->tireBand = new TireBandModel();
+    }
     public function geAll()
     {
-        $tireBand = new TireBandModel();
-        return $tireBand->get()->getResult();
+        return $this->tireBand->get()->getResult();
+    }
+
+    public function getAtives()
+    {
+        return $this->tireBand->where([
+            'status' => 'yes'
+        ])->get()->getResult();
     }
 
     public function insert(array $data)
     {
-        $tireBand = new TireBandModel();
-        return $tireBand->insert($data);
+        return $this->tireBand->insert($data);
     }
 
     public function update(int $id, array $datas)
     {
-        $tireBand = new TireBandModel();
-        return $tireBand->update($id, $datas);
+        return $this->tireBand->update($id, $datas);
     }
 
     public function delete(int $id)
     {
-        $tireBand = new TireBandModel();
-        return $tireBand->delete($id);
+        return $this->tireBand->delete($id);
     }
 }

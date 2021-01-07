@@ -9,9 +9,13 @@ use CodeIgniter\HTTP\Response;
 
 class UserServices
 {
-    public function auth(IncomingRequest $request): ?array
+    function __construct()
     {
         $this->userRepository = new UserRepository();
+    }
+
+    public function auth(IncomingRequest $request): ?array
+    {
 
         $login    = $request->getPost("login", FILTER_SANITIZE_STRING);
         $password = $request->getPost("password", FILTER_SANITIZE_STRING);

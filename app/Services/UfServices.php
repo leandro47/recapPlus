@@ -8,16 +8,17 @@ class UfServices
 {
     protected $uf;
 
+    function __construct()
+    {
+        $this->uf =  new UfRepository;
+    }
     public function getAll(): ?array
     {
-        $uf =  new UfRepository;
-        return $uf->geAll();
+        return $this->uf->geAll();
     }
 
     public function getByInitials(string $initials): ?array
     {
-        $uf =  new UfRepository;
-        return $uf->getByInitials($initials);
+        return $this->uf->getByInitials($initials);
     }
-    
 }

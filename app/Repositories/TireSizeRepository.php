@@ -6,27 +6,35 @@ use App\Models\TireSizeModel;
 
 class TireSizeRepository
 {
+    function __construct()
+    {
+        $this->tireSize = new TireSizeModel();
+    }
+
     public function geAll()
     {
-        $tireSize = new TireSizeModel();
-        return $tireSize->get()->getResult();
+        return $this->tireSize->get()->getResult();
+    }
+
+    public function getAtives()
+    {
+        return $this->tireSize->where([
+            'status' => 'yes'
+        ])->get()->getResult();
     }
 
     public function insert(array $data)
     {
-        $tireSize = new TireSizeModel();
-        return $tireSize->insert($data);
+        return $this->tireSize->insert($data);
     }
 
     public function update(int $id, array $datas)
     {
-        $tireSize = new TireSizeModel();
-        return $tireSize->update($id, $datas);
+        return $this->tireSize->update($id, $datas);
     }
 
     public function delete(int $id)
     {
-        $tireSize = new TireSizeModel();
-        return $tireSize->delete($id);
+        return $this->tireSize->delete($id);
     }
 }

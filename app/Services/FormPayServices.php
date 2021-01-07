@@ -10,22 +10,31 @@ class FormPayServices
 {
     protected $formPay;
 
+    function __construct()
+    {
+        $this->formPay =  new FormPayRepository;
+        
+    }
+
     public function getAll(): ?array
     {
-        $formPay =  new FormPayRepository;
-        return $formPay->geAll();
+        return $this->formPay->geAll();
+    }
+
+    public function getAtives(): ?array
+    {
+        return $this->formPay->getAtives();
     }
 
     public function insert(IncomingRequest $request): array
     {
-        $formPay =  new FormPayRepository;
         $newFormPay = $request->getPost("formPay", FILTER_SANITIZE_STRING);
 
         $this->dataIns['id'] = 'id';
         $this->dataIns['description'] = $newFormPay;
         $this->dataIns['status'] = 'yes';
 
-        if ($formPay->insert($this->dataIns)) {
+        if ($this->formPay->insert($this->dataIns)) {
             return  [
                 'code'    => Response::HTTP_OK,
                 'message' => 'Inserido com sucesso',
@@ -46,7 +55,6 @@ class FormPayServices
 
     public function update(IncomingRequest $request): array
     {
-        $formPay =  new FormPayRepository;
 
         $id = $request->getPost("idUpdate", FILTER_SANITIZE_STRING);
         $description = $request->getPost("description", FILTER_SANITIZE_STRING);
@@ -57,7 +65,7 @@ class FormPayServices
             'status' => $status
         ];
 
-        if ($formPay->update($id, $data)) {
+        if ($this->formPay->update($id, $data)) {
             return  [
                 'code'    => Response::HTTP_OK,
                 'message' => 'Atualizado com sucesso',
@@ -78,11 +86,10 @@ class FormPayServices
 
     public function delete(IncomingRequest $request): array
     {
-        $formPay =  new FormPayRepository;
 
         $id = $request->getPost("idDelete", FILTER_SANITIZE_STRING);
 
-        if ($formPay->delete($id)) {
+        if ($this->formPay->delete($id)) {
             return  [
                 'code'    => Response::HTTP_OK,
                 'message' => 'Deletado com sucesso',

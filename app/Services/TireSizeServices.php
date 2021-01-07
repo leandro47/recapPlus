@@ -10,10 +10,19 @@ class TireSizeServices
 {
     protected $tireSize;
 
+    function __construct()
+    {
+        $this->tireSize =  new TireSizeRepository;
+    }
+
     public function getAll(): ?array
     {
-        $tireSize =  new TireSizeRepository;
-        return $tireSize->geAll();
+        return $this->tireSize->geAll();
+    }
+
+    public function getAtives(): ?array
+    {
+        return $this->tireSize->getAtives();
     }
 
     public function insert(IncomingRequest $request): array

@@ -28,7 +28,7 @@ class OrderServiceModel extends Model
         'openDate',
         'closeDate',
         'deliveryDate',
-        'deliveyLocal',
+        'sellerObservation',
         'financialObservation'
     ];
 
