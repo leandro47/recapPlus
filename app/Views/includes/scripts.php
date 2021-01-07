@@ -38,6 +38,7 @@
 <script src="<?= base_url('assets') ?>/custom/js/formPay_index.js"></script>
 <script src="<?= base_url('assets') ?>/custom/js/client_index.js"></script>
 <script src="<?= base_url('assets') ?>/custom/js/orderService_searchClient.js"></script>
+<script src="<?= base_url('assets') ?>/custom/js/orderService_newOrder.js"></script>
 
 </body>
 
