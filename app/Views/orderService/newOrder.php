@@ -123,7 +123,7 @@
 
                         <div class="row">
                             <div class="col-sm-12 text-center">
-                                <a href="javascript:void(0)" class="btn btn-info btn-sm" id="buttonAdc" role="button" aria-pressed="true"><i class="fas fa-plus-circle"></i> Adicionar</a>
+                                <a href="javascript:void(0)" class="btn btn-info btn-sm btnAdd" id="buttonAdc" role="button" aria-pressed="true"><i class="fas fa-plus-circle"></i> Adicionar</a>
                             </div>
                         </div>
                     </div>
