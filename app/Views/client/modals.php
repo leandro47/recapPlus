@@ -47,7 +47,7 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="cep" class="control-label">CEP <span> <strong>*</strong></span></label>
-                                <input type="number" class="form-control" onchange="requestCep()" id="cep" name="cep" placeholder="" required>
+                                <input type="text" class="form-control" onchange="requestCep()" id="cep" name="cep" placeholder="" required>
                             </div>
                         </div>
 
@@ -263,7 +263,7 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="updateCep" class="control-label">CEP <span> <strong>*</strong></span></label>
-                                <input type="number" class="form-control" onchange="updateRequestCep()" id="updateCep" name="updateCep" placeholder="" required>
+                                <input type="text" class="form-control" onchange="updateRequestCep()" id="updateCep" name="updateCep" placeholder="" required>
                             </div>
                         </div>
 

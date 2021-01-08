@@ -26,7 +26,7 @@
                 <input type="hidden" class="form-control" id="client<?= $client->id ?>" name="client<?= $client->id ?>" value="">
 
                 <div class="card border-light mb-3" style="max-width: 100rem;">
-                    <div class="card-header text-center">Itens OS</div>
+                    <div class="card-header text-center">Itens OS </div>
                     <div class="card-body formContent">
 
                         <div class="row mb-3">
@@ -101,7 +101,7 @@
                                         <div class="col-sm-12 col-md-6 col-lg-3">
                                             <div class="form-group">
                                                 <label for="tirePrice[]" class="control-label"> Preço <span> <strong>*</strong></span></label>
-                                                <input type="text" class="form-control" id="tirePrice[]" name="tirePrice[]" placeholder="Preço" required>
+                                                <input type="text" class="form-control" id="tirePrice[]" name="tirePrice[]" onKeyPress="return(moeda(this,'.',',',event))" placeholder="Preço" required>
                                             </div>
                                         </div>
 
