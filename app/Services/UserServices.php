@@ -22,6 +22,16 @@ class UserServices
 
         $user = $this->userRepository->getUser($login);
 
+        if ($user === null) {
+            return  [
+                'code'    => Response::HTTP_UNAUTHORIZED,
+                'message' => 'Usuário ou senha incorretos',
+                'data'    => [
+                    'status' => 'warning'
+                ]
+            ];
+        }
+
         $hashVerify =  $this->verifyHash($user->password, $password);
 
         if ($hashVerify) {

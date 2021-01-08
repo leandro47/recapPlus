@@ -30,7 +30,7 @@
                         <button class="au-btn au-btn--block btn-1 m-b-20" type="submit">Entrar</button>
                     </form>
                     <hr>
-                    <div class="text-muted text-center"> &copy; RecapPlus <?php echo date('yy') ?> | Mallon</div>
+                    <div class="text-muted text-center"> &copy; RecapPlus <?php echo date('Y') ?> | Mallon</div>
                 </div>
             </div>
         </div>
