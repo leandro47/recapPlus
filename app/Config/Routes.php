@@ -38,7 +38,6 @@ $routes->get('logout', 'User::logout');
 $routes->get('newOrderService', 'OrderService::index'); //Menu
 $routes->post('openOrderService', 'OrderService::insert'); // newOrder
 
-
 /**
  * --------------------------------------------------------------------
  * Additional Routing

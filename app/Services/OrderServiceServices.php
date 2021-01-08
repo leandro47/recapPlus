@@ -54,4 +54,9 @@ class OrderServiceServices
             ];
         }
     }
+
+    public function getOrderService(int $idOrderService) : ? object
+    {
+        return $this->orderServices->getOrderServiceByID($idOrderService);
+    }
 }

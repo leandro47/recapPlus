@@ -10,6 +10,28 @@ if ($('#orderService_searchClient').length) {
                 type: "GET",
                 url: `${BASE_URL}/Client/getClientByNameCpf/${searchClient.value}`,
                 dataType: 'json',
+                error: (e) => {
+                    $('#tableClients tbody').empty();
+
+                    var newRow = $("<tr>");
+                    var cols = "";
+                    cols += `<td colspan="3" class="text-center">Verifique sua conexão com a internet</td>`;
+
+                    newRow.append(cols); $("#tableClients").append(newRow);
+                },
+                beforeSend: () => {
+
+                    $('#tableClients tbody').empty();
+
+                    var newRow = $("<tr>");
+                    var cols = "";
+                    cols += `<td colspan="3" class="text-center">Carregando dados...</td>`;
+
+                    newRow.append(cols); $("#tableClients").append(newRow);
+                },
+                complete: () => {
+
+                },
                 success: function (data) {
 
                     $('#tableClients tbody').empty();

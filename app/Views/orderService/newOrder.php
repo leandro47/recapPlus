@@ -159,7 +159,7 @@
                             <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <label for="formPay" class="control-label"> Forma de pagamento <span> <strong>*</strong></span></label>
-                                    <select class="custom-select" name="formPay" id="formPay">
+                                    <select class="custom-select" onchange="allowField()" name="formPay" id="formPay">
                                         <?php foreach ($formPay as $item) : ?>
                                             <option value="<?= $item->id ?>"><?= $item->description ?></option>
                                         <?php endforeach; ?>
@@ -169,7 +169,7 @@
                             <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <label for="customFormPay" class="control-label"> Especial</label>
-                                    <input type="text" class="form-control" id="customFormPay" name="customFormPay" placeholder="Customizado">
+                                    <input type="text" class="form-control" disabled id="customFormPay"  name="customFormPay" placeholder="Selecione customizada para habilitar esse campo">
                                 </div>
                             </div>
                         </div>
@@ -183,7 +183,7 @@
                             <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <label for="deliveryDate" class="control-label">Entrega <span> <strong>*</strong></span></label>
-                                    <input type="date" class="form-control" id="deliveryDate" name="deliveryDate" required placeholder="Customizado">
+                                    <input type="date" class="form-control" id="deliveryDate" name="deliveryDate" required>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-6">

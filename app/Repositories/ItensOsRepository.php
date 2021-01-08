@@ -15,4 +15,11 @@ class ItensOsRepository
     {
         return $this->itensOs->insert($data);
     }
+
+    public function getItensByOs(int $idOS)
+    {
+        $sql = "";
+
+        return $this->itensOs->query($sql,[$idOS])->getResult();
+    }
 }

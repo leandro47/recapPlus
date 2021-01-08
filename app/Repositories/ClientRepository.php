@@ -32,7 +32,7 @@ class ClientRepository
         (uf.name_uf)name_uf
         FROM 
         client AS cli 
-        JOIN city AS ci
+        join city AS ci
         join uf as uf
         ON cli.idCity = ci.id and 
         ci.id_uf  = uf.id";

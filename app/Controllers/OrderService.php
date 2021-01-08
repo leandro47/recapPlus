@@ -80,12 +80,25 @@ class OrderService extends BaseController
                 $this->newOrderService($idClient);
             } else {
 
-                $idOs = $resultInsert['data']['idOs'];
-
                 //Create itens
-                $result = $this->itensOrderService->insert($idOs, $this->request);
-                debugDatas($result);
+                $result = $this->itensOrderService->insert($resultInsert['data']['idOs'], $this->request);
+
+                if (!$result['code'] === 200) {
+
+                    $this->data['errorInsertOS'] = $result;
+                    $this->newOrderService($idClient);
+                } else {
+
+                    return redirect()->to('OrderService/printerRomaneio/'. $result['data']['numberOrder'] );
+                }
             }
         }
+    }
+
+    public function printerRomaneio(int $idOs)
+    {
+        $this->data['orderService'] = $this->orderService->getOrderService($idOs);
+        
+        debugDatas($this->data);
     }
 }
