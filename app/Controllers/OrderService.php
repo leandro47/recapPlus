@@ -54,7 +54,7 @@ class OrderService extends BaseController
 
     public function insert()
     {
-        $fogo = $this->request->getPost("tireDot1", FILTER_SANITIZE_STRING);
+        $fogo = $this->request->getPost("fire", FILTER_SANITIZE_STRING);
         var_dump($fogo);
     }
 }

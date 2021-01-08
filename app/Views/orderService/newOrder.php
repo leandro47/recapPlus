@@ -27,21 +27,27 @@
 
                 <div class="card border-light mb-3" style="max-width: 100rem;">
                     <div class="card-header text-center">Itens OS</div>
-                    <div class="card-body">
+                    <div class="card-body formContent">
+
+                        <div class="row mb-3">
+                            <div class="col-sm-12 text-center">
+                                <a href="javascript:void(0)" class="btn btn-info btn-sm" id="btnAdd" role="button" aria-pressed="true"><i class="fas fa-plus-circle"></i> Adicionar</a>
+                            </div>
+                        </div>
 
                         <!-- Start Form  -->
-                        <div class="tireForm1">
+                        <div class="tireForm">
                             <div class="card border-secondary mb-1" style="max-width: 100rem;">
                                 <div class="card-body text-secondary">
                                     <div class="row">
                                         <div class="col-sm-12 text-right">
-                                            <a href="#!" class="btn btn-danger btn-sm disabled remove_field" onclick="removeField('1')" role="button" aria-pressed="true"><i class="fas fa-trash-alt"></i> Remover</a>
+                                            <a href="#!" class="btn btn-danger btn-sm remove_field" role="button" aria-pressed="true"><i class="fas fa-trash-alt"></i> Remover</a>
                                         </div>
 
                                         <div class="col-sm-12 col-md-6 col-lg-3">
                                             <div class="form-group">
-                                                <label for="tireBrand" class="control-label"> Marca <span> <strong>*</strong></span></label>
-                                                <select class="custom-select" name="tireBrand1" id="tireBrand1">
+                                                <label for="tireBrand[]" class="control-label"> Marca <span> <strong>*</strong></span></label>
+                                                <select class="custom-select" name="tireBrand[]" id="tireBrand[]">
                                                     <?php foreach ($brand as $item) : ?>
                                                         <option value="<?= $item->id ?>"><?= $item->description ?></option>
                                                     <?php endforeach; ?>
@@ -51,8 +57,8 @@
 
                                         <div class="col-sm-12 col-md-6 col-lg-3">
                                             <div class="form-group">
-                                                <label for="tireBand1" class="control-label"> Banda <span> <strong>*</strong></span></label>
-                                                <select class="custom-select" name="tireBand1" id="tireBand1">
+                                                <label for="tireBand[]" class="control-label"> Banda <span> <strong>*</strong></span></label>
+                                                <select class="custom-select" name="tireBand[]" id="tireBand[]">
                                                     <?php foreach ($band as $item) : ?>
                                                         <option value="<?= $item->id ?>"><?= $item->description ?></option>
                                                     <?php endforeach; ?>
@@ -62,8 +68,8 @@
 
                                         <div class="col-sm-12 col-md-6 col-lg-3">
                                             <div class="form-group">
-                                                <label for="tireSize1" class="control-label"> Medida <span> <strong>*</strong></span></label>
-                                                <select class="custom-select" name="tireSize1" id="tireSize1">
+                                                <label for="tireSize[]" class="control-label"> Medida <span> <strong>*</strong></span></label>
+                                                <select class="custom-select" name="tireSize[]" id="tireSize[]">
                                                     <?php foreach ($size as $item) : ?>
                                                         <option value="<?= $item->id ?>"><?= $item->description ?></option>
                                                     <?php endforeach; ?>
@@ -73,36 +79,36 @@
 
                                         <div class="col-sm-12 col-md-6 col-lg-3">
                                             <div class="form-group">
-                                                <label for="tireNumber1" class="control-label"> Número <span> <strong>*</strong></span></label>
-                                                <input type="text" class="form-control" id="tireNumber1" name="tireNumber1" placeholder="Número pneu" required>
+                                                <label for="tireNumber[]" class="control-label"> Número <span> <strong>*</strong></span></label>
+                                                <input type="text" class="form-control" id="tireNumber[]" name="tireNumber[]" placeholder="Número pneu" required>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-12 col-md-6 col-lg-3">
                                             <div class="form-group">
-                                                <label for="tireDot1" class="control-label"> Dot <span> <strong>*</strong></span></label>
-                                                <input type="text" class="form-control" id="tireDot1" name="tireDot1" placeholder="Número dot" required>
+                                                <label for="tireDot[]" class="control-label"> Dot <span> <strong>*</strong></span></label>
+                                                <input type="text" class="form-control" id="tireDot[]" name="tireDot[]" placeholder="Número dot" required>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-12 col-md-6 col-lg-3">
                                             <div class="form-group">
-                                                <label for="fire1" class="control-label"> Fogo <span> <strong>*</strong></span></label>
-                                                <input type="text" class="form-control" id="fire1" name="fire1" placeholder="Número fogo" required>
+                                                <label for="fire[]" class="control-label"> Fogo <span> <strong>*</strong></span></label>
+                                                <input type="text" class="form-control" id="fire[]" name="fire[]" placeholder="Número fogo" required>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-12 col-md-6 col-lg-3">
                                             <div class="form-group">
-                                                <label for="tirePrice1" class="control-label"> Preço <span> <strong>*</strong></span></label>
-                                                <input type="text" class="form-control" id="tirePrice1" name="tirePrice1" placeholder="Preço" required>
+                                                <label for="tirePrice[]" class="control-label"> Preço <span> <strong>*</strong></span></label>
+                                                <input type="text" class="form-control" id="tirePrice[]" name="tirePrice[]" placeholder="Preço" required>
                                             </div>
                                         </div>
 
                                         <div class="col-sm-12 col-md-6 col-lg-3">
                                             <div class="form-group">
-                                                <label for="warranty1" class="control-label"> Garantia <span> <strong>?</strong></span></label>
-                                                <select class="custom-select" name="warranty1" id="warranty1">
+                                                <label for="warranty[]" class="control-label"> Garantia <span> <strong>?</strong></span></label>
+                                                <select class="custom-select" name="warranty[]" id="warranty[]">
                                                     <option value="yes">Sim</option>
                                                     <option value="no">Não</option>
                                                 </select>
@@ -121,11 +127,6 @@
                             </div>
                         </div> <!-- end form -->
 
-                        <div class="row">
-                            <div class="col-sm-12 text-center">
-                                <a href="javascript:void(0)" class="btn btn-info btn-sm btnAdd" id="buttonAdc" role="button" aria-pressed="true"><i class="fas fa-plus-circle"></i> Adicionar</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="card border-light mb-3" style="max-width: 100rem;">
