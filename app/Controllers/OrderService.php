@@ -4,10 +4,12 @@ namespace App\Controllers;
 
 use App\Services\ClientServices;
 use App\Services\FormPayServices;
+use App\Services\ItensOsServices;
 use App\Services\OrderServiceServices;
 use App\Services\TireBandServices;
 use App\Services\TireBrandServices;
 use App\Services\TireSizeServices;
+
 use App\Validation\OrderServiceValidation;
 
 class OrderService extends BaseController
@@ -16,13 +18,16 @@ class OrderService extends BaseController
 
     public function __construct()
     {
+        //Services
         $this->orderService = new OrderServiceServices();
         $this->client = new ClientServices();
         $this->brand = new TireBrandServices();
         $this->band = new TireBandServices();
         $this->size = new TireSizeServices();
         $this->formPay = new FormPayServices();
+        $this->itensOrderService = new ItensOsServices();
 
+        //Datas
         $this->data['titlePage'] = 'Novo';
         $this->data['userName'] = session()->get('name');
         $this->data['login'] = session()->get('login');
@@ -54,7 +59,33 @@ class OrderService extends BaseController
 
     public function insert()
     {
-        $fogo = $this->request->getPost("fire", FILTER_SANITIZE_STRING);
-        var_dump($fogo);
+        $this->validate = OrderServiceValidation::validateInsert($this->request);
+
+        //Get ID client
+        $idClient = $this->request->getPost("clientId", FILTER_SANITIZE_STRING);
+
+        //Need find method validation multiples fields with names iguals
+        if (false) {
+
+            $this->datas['validation'] = $this->validate;
+            $this->newOrderService($idClient);
+        } else {
+
+            //Create Order
+            $resultInsert = $this->orderService->insert($this->request);
+
+            if (!$resultInsert['code'] === 200) {
+
+                $this->data['errorInsertOS'] = $resultInsert;
+                $this->newOrderService($idClient);
+            } else {
+
+                $idOs = $resultInsert['data']['idOs'];
+
+                //Create itens
+                $result = $this->itensOrderService->insert($idOs, $this->request);
+                debugDatas($result);
+            }
+        }
     }
 }

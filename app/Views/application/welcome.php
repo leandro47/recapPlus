@@ -22,7 +22,7 @@
             <h4>Acesso rápido</h4>
         </div>
         <div class="col-sm-12 col-md-4 col-lg-4 text-center">
-            <a href="#" class="btn btn-2 btn-block mb-1" role="button" aria-pressed="true">Nova OS</a>
+            <a href="<?= base_url('newOrderService') ?>" class="btn btn-2 btn-block mb-1" role="button" aria-pressed="true">Nova OS</a>
         </div>
         <div class="col-sm-12 col-md-4 col-lg-4 text-center">
             <a href="#" class="btn btn-2 btn-block mb-1" role="button" aria-pressed="true">OS em aberto</a>

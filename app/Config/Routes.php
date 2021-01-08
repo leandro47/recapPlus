@@ -34,7 +34,9 @@ $routes->get('/', 'Main::index');
 
 $routes->post('login', 'User::login');
 $routes->get('logout', 'User::logout');
-$routes->get('newOrderService', 'OrderService::index');
+
+$routes->get('newOrderService', 'OrderService::index'); //Menu
+$routes->post('openOrderService', 'OrderService::insert'); // newOrder
 
 
 /**

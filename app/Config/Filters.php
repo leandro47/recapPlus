@@ -58,6 +58,6 @@ class Filters extends BaseConfig
 		'TireBrandFilter' => ['before' => ['TireBrand', 'TireBrand/*']],
 		'FormPayFilter' => ['before' => ['FormPay', 'FormPay/*']],
 		'ClientFilter' => ['before' => ['Client', 'Client/*']],
-		'OrderServiceFilter' => ['before' => ['OrderService', 'OrderService/*', 'newOrderService']],
+		'OrderServiceFilter' => ['before' => ['OrderService', 'OrderService/*', 'newOrderService', 'openOrdeService']],
 	];
 }

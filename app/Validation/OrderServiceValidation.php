@@ -8,10 +8,22 @@ use CodeIgniter\HTTP\Response;
 class OrderServiceValidation
 {
     protected static $rulesInsertOrderService = [
-        'formPay' => [
+        'clientId' => [
             'rules' => 'required',
             'errors' => [
-                'required' => 'Campo forma de pagamento é obrigatório.'
+                'required' => 'Id client Inexistente'
+            ]
+        ],
+        'tireBrand' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Marca'
+            ]
+        ],
+        'tireNumber[]' => [
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Numero'
             ]
         ],
     ];

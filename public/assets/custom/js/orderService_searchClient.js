@@ -6,8 +6,6 @@ if ($('#orderService_searchClient').length) {
 
             let searchClient = document.getElementById('searchClient');
 
-            
-
             $.ajax({
                 type: "GET",
                 url: `${BASE_URL}/Client/getClientByNameCpf/${searchClient.value}`,

@@ -22,8 +22,31 @@
         </div>
 
         <div class="col-12 ">
-            <form action="<?= base_url('OrderService/insert') ?>" id="formNewOs" method="POST" class="form" role="form">
-                <input type="hidden" class="form-control" id="client<?= $client->id ?>" name="client<?= $client->id ?>" value="">
+
+            <?php if (isset($validation)) : ?>
+
+                <div class="alert alert-<?= $validation['data']['status'] ?> alert-dismissible fade show" role="alert">
+                    <strong>Os seguintes campos é obrigatório!</strong> <?= $validation['message'] ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+            <?php endif; ?>
+
+            <?php if (isset($errorInsertOS)) : ?>
+
+                <div class="alert alert-<?= $errorInsertOS['data']['status'] ?> alert-dismissible fade show" role="alert">
+                    <strong>Oh no!</strong> <?= $errorInsertOS['message'] ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+            <?php endif; ?>
+
+            <form action="<?= base_url('openOrderService') ?>" id="formNewOs" method="POST" class="form" role="form">
+                <input type="hidden" class="form-control" id="clientId" name="clientId" value="<?= $client->id ?>">
 
                 <div class="card border-light mb-3" style="max-width: 100rem;">
                     <div class="card-header text-center">Itens OS </div>
@@ -93,8 +116,8 @@
 
                                         <div class="col-sm-12 col-md-6 col-lg-3">
                                             <div class="form-group">
-                                                <label for="fire[]" class="control-label"> Fogo <span> <strong>*</strong></span></label>
-                                                <input type="text" class="form-control" id="fire[]" name="fire[]" placeholder="Número fogo" required>
+                                                <label for="tireFire[]" class="control-label"> Fogo <span> <strong>*</strong></span></label>
+                                                <input type="text" class="form-control" id="tireFire[]" name="tireFire[]" placeholder="Número fogo" required>
                                             </div>
                                         </div>
 
