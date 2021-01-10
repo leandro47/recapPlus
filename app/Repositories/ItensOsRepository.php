@@ -18,7 +18,23 @@ class ItensOsRepository
 
     public function getItensByOs(int $idOS)
     {
-        $sql = "";
+        $sql = "SELECT 
+            (brand.description)tireBrand,
+            (band.description)tireBand,
+            (size.description)tireSize,
+            iten.tireDot,
+            iten.fire,
+            iten.tireNumber,
+            iten.tirePrice,
+            iten.warranty
+            from itensos as iten join 
+            tiresize as size join
+            tireband as band join
+            tirebrand as brand
+            on iten.idTiresize = size.id and
+            iten.idTireband = band.id and
+            iten.idTirebrand = brand.id
+            where idOrderservice = ?";
 
         return $this->itensOs->query($sql,[$idOS])->getResult();
     }

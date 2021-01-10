@@ -196,7 +196,7 @@
                             </div>
                             <div class="col-sm-12 text-right">
                                 <hr>
-                                <button type="submit" class="btn btn-success"><i class="fas fa-check-circle"></i> Criar OS</button>
+                                <button type="submit" id="btnNewOs" class="btn btn-success"><i class="fas fa-check-circle"></i> Criar OS</button>
                             </div>
                         </div>
                     </div>

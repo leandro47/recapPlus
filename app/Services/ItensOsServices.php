@@ -15,7 +15,12 @@ class ItensOsServices
         $this->itensOs =  new ItensOsRepository;
     }
 
-    public function insert(int $idOs, IncomingRequest $request)
+    public function getItensByOs(int $idOs): array
+    {
+        return $this->itensOs->getItensByOs($idOs);
+    }
+
+    public function insert(int $idOs, IncomingRequest $request): array
     {
         //data Insert
         $tireBrand = $request->getPost('tireBrand', FILTER_SANITIZE_STRING);
@@ -37,7 +42,7 @@ class ItensOsServices
             $this->dataIns['tireDot'] = $tireDot[$i];
             $this->dataIns['fire'] = $tireFire[$i];
             $this->dataIns['tireNumber'] = $tireNumber[$i];
-            $this->dataIns['tirePrice'] = $tirePrice[$i];
+            $this->dataIns['tirePrice'] = str_replace(',', '.', $tirePrice[$i]);
             $this->dataIns['warranty'] = $warranty[$i];
 
             if (!$this->itensOs->insert($this->dataIns)) {

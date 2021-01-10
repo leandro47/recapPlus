@@ -21,6 +21,12 @@ function response(array $data): void
     echo json_encode($data);
 }
 
+function forReal(float $vlr)
+{
+    setlocale(LC_MONETARY, 'en_US.UTF-8');
+    return number_format($vlr,2,',','.');
+}
+
 /**
  * Used for create passwords
  *

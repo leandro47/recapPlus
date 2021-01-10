@@ -18,21 +18,26 @@ class OrderServiceRepository
 
     public function getOrderServiceByID(int $idOrderService)
     {
-        $sql = "SELECT 
+        $sql = 'SELECT 
+		(us.name)saller,
         (os.id)idOs,
         (cli.name)clientName,
         (cnpjCpf)cpfCnpj,
-        (os.openDate)openDate,
-        (os.deliveryDate)deliveryDate,
+        (DATE_FORMAT(os.openDate, "%d/%m/%Y %H:%i"))openDate,
+		(DATE_FORMAT(os.deliveryDate, "%d/%m/%Y"))deliveryDate,
         (pay.description)formPay,
         (os.sellerObservation)observation
         from orderservice as os
          join client as cli 
          join formpay as pay
+         join user as us
          on os.idClient = cli.id and
-        os.idFormpay = pay.id
-        and os.id = ?;";
+			os.idFormpay = pay.id and
+            os.idUser = us.id and
+			os.id = :id:';
 
-        return $this->orderService->query($sql,[$idOrderService])->getRow();
+        return $this->orderService->query($sql, [
+            'id' => $idOrderService
+        ])->getRow();
     }
 }

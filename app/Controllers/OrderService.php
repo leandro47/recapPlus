@@ -89,7 +89,7 @@ class OrderService extends BaseController
                     $this->newOrderService($idClient);
                 } else {
 
-                    return redirect()->to('OrderService/printerRomaneio/'. $result['data']['numberOrder'] );
+                    return redirect()->to('OrderService/printerRomaneio/' . $result['data']['numberOrder']);
                 }
             }
         }
@@ -98,7 +98,12 @@ class OrderService extends BaseController
     public function printerRomaneio(int $idOs)
     {
         $this->data['orderService'] = $this->orderService->getOrderService($idOs);
-        
-        debugDatas($this->data);
+        $this->data['itensOs'] = $this->itensOrderService->getItensByOs($idOs);
+
+        //Send Email with notification of new Order Service
+
+        //Show view with datas of romaneio for printer
+        echo view('printers/romaneio', $this->data);
+        echo view('includes/scripts', $this->data);
     }
 }
