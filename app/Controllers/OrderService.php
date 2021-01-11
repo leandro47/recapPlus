@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Services\ClientServices;
 use App\Services\FormPayServices;
 use App\Services\ItensOsServices;
+use App\Services\MailerServices;
 use App\Services\OrderServiceServices;
 use App\Services\TireBandServices;
 use App\Services\TireBrandServices;
@@ -16,7 +17,7 @@ class OrderService extends BaseController
 {
     protected $validate;
 
-    public function __construct()
+    function __construct()
     {
         //Services
         $this->orderService = new OrderServiceServices();
@@ -26,6 +27,7 @@ class OrderService extends BaseController
         $this->size = new TireSizeServices();
         $this->formPay = new FormPayServices();
         $this->itensOrderService = new ItensOsServices();
+        $this->mailerServices = new MailerServices();
 
         //Datas
         $this->data['titlePage'] = 'Novo';
@@ -101,9 +103,22 @@ class OrderService extends BaseController
         $this->data['itensOs'] = $this->itensOrderService->getItensByOs($idOs);
 
         //Send Email with notification of new Order Service
+        $mailSend = $this->mailerServices->sendMailer();
 
         //Show view with datas of romaneio for printer
         echo view('printers/romaneio', $this->data);
         echo view('includes/scripts', $this->data);
+    }
+
+    public function sendMail()
+    {
+        echo view('Mailer/newOrder', $this->data);
+        // $mailSend = $this->mailerServices->sendMailer('Nova OS 485', view('Mailer/newOrder', $this->data));
+
+        // if ($mailSend) {
+        //     debugDatas($mailSend);
+        // } else {
+        //     echo 'enviou';
+        // }
     }
 }
