@@ -16,7 +16,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Main');
+$routes->setDefaultController('MainController');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -30,13 +30,20 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Main::index');
 
-$routes->post('login', 'User::login');
-$routes->get('logout', 'User::logout');
+//Main
+$routes->get('/', 'MainController::index');
+$routes->get('main', 'MainController::index');
 
-$routes->get('newOrderService', 'OrderService::index'); //Menu
-$routes->post('openOrderService', 'OrderService::insert'); // newOrder
+//User
+$routes->post('login', 'UserController::login');
+$routes->get('login', 'UserController::index');
+$routes->get('logout', 'UserController::logout');
+
+
+
+$routes->get('newOrderService', 'OrderServiceController::index'); //Menu
+$routes->post('openOrderService', 'OrderServiceController::insert'); // newOrder
 
 /**
  * --------------------------------------------------------------------

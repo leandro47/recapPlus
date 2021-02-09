@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Services\UfServices;
 
-class Uf extends BaseController
+class UfController extends BaseController
 {
     public function getByInitials(string $initials)
     {

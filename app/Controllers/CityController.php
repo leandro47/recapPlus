@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Services\CityServices;
 use App\Services\UfServices;
 
-class City extends BaseController
+class CityController extends BaseController
 {
     function __construct()
     {

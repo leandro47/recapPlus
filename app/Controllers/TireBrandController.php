@@ -1,11 +1,11 @@
-    <?php
+<?php
 
 namespace App\Controllers;
 
 use App\Services\TireBrandServices;
 use App\Validation\TireBrandValidation;
 
-class TireBrand extends BaseController
+class TireBrandController extends BaseController
 {
     protected $validate;
 

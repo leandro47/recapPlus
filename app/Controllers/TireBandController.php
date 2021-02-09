@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Services\TireBandServices;
 use App\Validation\TireBandValidation;
 
-class TireBand extends BaseController
+class TireBandController extends BaseController
 {
     protected $validate;
 

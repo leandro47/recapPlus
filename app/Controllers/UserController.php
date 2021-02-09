@@ -5,23 +5,16 @@ namespace App\Controllers;
 use App\Validation\UserValidation;
 use App\Services\UserServices;
 
-class User extends BaseController
+class UserController extends BaseController
 {
-    /**
-     * Variables
-     */
-    protected $validate;
 
-    // ==================================================
+    protected $validate;
 
     public function __construct()
     {
         $this->data['titlePage'] = 'Login';
     }
 
-    // ==================================================
-
-    // Formulário de login
     public function index()
     {
         echo view('includes/head', $this->data);
@@ -29,9 +22,6 @@ class User extends BaseController
         echo view('includes/scripts', $this->data);
     }
 
-    // ==================================================
-
-    //Receive datas of login
     public function login()
     {
         $this->validate = UserValidation::validateAuth($this->request);
@@ -46,7 +36,7 @@ class User extends BaseController
 
             if (!$result) {
 
-                return redirect()->to(base_url('main'));
+                return redirect()->to('main');
             } else {
 
                 $this->data['validation'] = $result;

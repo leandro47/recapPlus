@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Services\FormPayServices;
 use App\Validation\FormPayValidation;
 
-class FormPay extends BaseController
+class FormPayController extends BaseController
 {
     protected $validate;
 

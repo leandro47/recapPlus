@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Services\TireSizeServices;
 use App\Validation\TireSizeValidation;
 
-class TireSize extends BaseController
+class TireSizeController extends BaseController
 {
     protected $validate;
 

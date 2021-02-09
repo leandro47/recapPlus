@@ -6,7 +6,7 @@ use App\Services\ClientServices;
 use App\Validation\ClientValidation;
 use App\Services\UfServices;
 
-class Client extends BaseController
+class ClientController extends BaseController
 {
     protected $validate;
 

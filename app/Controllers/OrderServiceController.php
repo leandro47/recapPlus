@@ -13,7 +13,7 @@ use App\Services\TireSizeServices;
 
 use App\Validation\OrderServiceValidation;
 
-class OrderService extends BaseController
+class OrderServiceController extends BaseController
 {
     protected $validate;
 
