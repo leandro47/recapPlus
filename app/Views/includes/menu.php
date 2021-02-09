@@ -25,7 +25,7 @@
 
                 <!-- DashBoard  -->
                 <li>
-                    <a href="chart.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                    <a href="#!"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
                 </li>
 
                 <!-- CPK  -->
@@ -34,10 +34,10 @@
                         <i class="fas fa-car"></i>CPK</a>
                     <ul class="list-unstyled navbar-mobile-sub__list js-sub-list">
                         <li>
-                            <a href="index.html">Nova consulta</a>
+                            <a href="#!">Nova consulta</a>
                         </li>
                         <li>
-                            <a href="index2.html">Histórico</a>
+                            <a href="#!">Histórico</a>
                         </li>
                     </ul>
                 </li>
