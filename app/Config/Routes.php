@@ -1,10 +1,12 @@
 <?php namespace Config;
 
 // Create a new instance of our RouteCollection class.
+
 $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
+
 if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
 {
 	require SYSTEMPATH . 'Config/Routes.php';
@@ -15,6 +17,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
  * Router Setup
  * --------------------------------------------------------------------
  */
+
 $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('MainController');
 $routes->setDefaultMethod('index');
@@ -35,13 +38,24 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'MainController::index');
 $routes->get('main', 'MainController::index');
 
-//User
+//Client
+$routes->get('client', 'ClientController::index');
+$routes->get('getclient', 'ClientController::getAll');
+$routes->post('insertclient', 'ClientController::insert');
+
+//Uf
+$routes->get('getufbyinitials/(:alphanum)', 'UfController::getByInitials/$1');
+
+//City
+$routes->get('getcitybyuf/(:alphanum)', 'CityController::getByUf/$1');
+$routes->get('getcityibge/(:alphanum)', 'CityController::getByIbge/$1');
+
+//User 
 $routes->post('login', 'UserController::login');
 $routes->get('login', 'UserController::index');
 $routes->get('logout', 'UserController::logout');
 
-
-
+//Order service
 $routes->get('newOrderService', 'OrderServiceController::index'); //Menu
 $routes->post('openOrderService', 'OrderServiceController::insert'); // newOrder
 
