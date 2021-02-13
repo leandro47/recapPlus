@@ -259,7 +259,7 @@ if ($('#client_index').length) {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/client/delete`,
+                url: `${BASE_URL}/deleteclient`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {
@@ -320,7 +320,7 @@ if ($('#client_index').length) {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/Client/update`,
+                url: `${BASE_URL}/updateclient`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {
@@ -388,7 +388,7 @@ if ($('#client_index').length) {
 
         $.ajax({
             type: "GET",
-            url: `${BASE_URL}/Uf/getByInitials/${uf}`,
+            url: `${BASE_URL}/getufbyinitials/${uf}`,
             dataType: 'json',
             success: function (data) {
 
@@ -415,7 +415,7 @@ if ($('#client_index').length) {
 
         $.ajax({
             type: "GET",
-            url: `${BASE_URL}/City/getByUf/${uf}`,
+            url: `${BASE_URL}/getcitybyuf/${uf}`,
             dataType: 'json',
             success: function (data) {
 
@@ -445,7 +445,7 @@ if ($('#client_index').length) {
 
         $.ajax({
             type: "GET",
-            url: `${BASE_URL}/City/getByIbge/${ibge}`,
+            url: `${BASE_URL}/getcityibge/${ibge}`,
             dataType: 'json',
             success: function (data) {
 

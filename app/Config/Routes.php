@@ -42,6 +42,8 @@ $routes->get('main', 'MainController::index');
 $routes->get('client', 'ClientController::index');
 $routes->get('getclient', 'ClientController::getAll');
 $routes->post('insertclient', 'ClientController::insert');
+$routes->post('deleteclient', 'ClientController::delete');
+$routes->post('updateclient', 'ClientController::update');
 
 //Uf
 $routes->get('getufbyinitials/(:alphanum)', 'UfController::getByInitials/$1');
