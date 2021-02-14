@@ -44,7 +44,7 @@ class OrderServiceController extends BaseController
         echo view('includes/scripts', $this->data);
     }
 
-    public function newOrderService(int $id = null)
+    public function newOrderService(int $id)
     {
         $this->data['client'] = $this->client->getById($id);
         $this->data['brand'] = $this->brand->getAtives();

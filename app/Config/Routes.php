@@ -37,10 +37,12 @@ $routes->setAutoRoute(true);
 //Main
 $routes->get('/', 'MainController::index');
 $routes->get('main', 'MainController::index');
+$routes->get('main/(:alphanum)', 'MainController::index/$1');
 
 //Client
 $routes->get('client', 'ClientController::index');
 $routes->get('getclient', 'ClientController::getAll');
+$routes->get('getclientbynamecpf/(:alphanum)', 'ClientController::getClientByNameCpf/$1');
 $routes->post('insertclient', 'ClientController::insert');
 $routes->post('deleteclient', 'ClientController::delete');
 $routes->post('updateclient', 'ClientController::update');
@@ -52,14 +54,43 @@ $routes->get('getufbyinitials/(:alphanum)', 'UfController::getByInitials/$1');
 $routes->get('getcitybyuf/(:alphanum)', 'CityController::getByUf/$1');
 $routes->get('getcityibge/(:alphanum)', 'CityController::getByIbge/$1');
 
+//FormPay
+$routes->get('formpay', 'FormPayController::index');
+$routes->get('getformpay', 'FormPayController::getAll');
+$routes->post('insertformpay', 'FormPayController::insert');
+$routes->post('updateformpay', 'FormPayController::update');
+$routes->post('deleteformpay', 'FormPayController::delete');
+
+//TireSize
+$routes->get('tiresize', 'TireSizeController::index');
+$routes->get('gettiresize', 'TireSizeController::getAll');
+$routes->post('inserttiresize', 'TireSizeController::insert');
+$routes->post('updatetiresize', 'TireSizeController::update');
+$routes->post('deletetiresize', 'TireSizeController::delete');
+
+//TireBand
+$routes->get('tireband', 'TireBandController::index');
+$routes->get('gettireband', 'TireBandController::getAll');
+$routes->post('inserttireband', 'TireBandController::insert');
+$routes->post('updatetireband', 'TireBandController::update');
+$routes->post('deletetireband', 'TireBandController::delete');
+
+//TireBrand
+$routes->get('tirebrand', 'TireBrandController::index');
+$routes->get('gettirebrand', 'TireBrandController::getAll');
+$routes->post('inserttirebrand', 'TireBrandController::insert');
+$routes->post('updatetirebrand', 'TireBrandController::update');
+$routes->post('deletetirebrand', 'TireBrandController::delete');
+
 //User 
 $routes->post('login', 'UserController::login');
 $routes->get('login', 'UserController::index');
 $routes->get('logout', 'UserController::logout');
 
 //Order service
-$routes->get('newOrderService', 'OrderServiceController::index'); //Menu
-$routes->post('openOrderService', 'OrderServiceController::insert'); // newOrder
+$routes->get('orderservice', 'OrderServiceController::index'); 
+$routes->get('neworderservice/(:num)', 'OrderServiceController::newOrderService/$1'); 
+$routes->post('openOrderService', 'OrderServiceController::insert'); 
 
 /**
  * --------------------------------------------------------------------

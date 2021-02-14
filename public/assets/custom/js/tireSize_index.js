@@ -10,7 +10,7 @@ if ($('#tireSize_index').length) {
             destroy: true,
             responsive: false,
             ajax: {
-                url: `${BASE_URL}/tireSize/getAll`,
+                url: `${BASE_URL}/gettiresize`,
                 dataType: "json",
                 cache: false,
                 dataSrc: (data) => {
@@ -64,7 +64,7 @@ if ($('#tireSize_index').length) {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/tireSize/insert`,
+                url: `${BASE_URL}/inserttiresize`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {
@@ -105,7 +105,7 @@ if ($('#tireSize_index').length) {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/tireSize/update`,
+                url: `${BASE_URL}/updatetiresize`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {
@@ -142,7 +142,7 @@ if ($('#tireSize_index').length) {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/tireSize/delete`,
+                url: `${BASE_URL}/deletetiresize`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {

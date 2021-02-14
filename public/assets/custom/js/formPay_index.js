@@ -10,7 +10,7 @@ if ($('#formPay_index').length) {
             destroy: true,
             responsive: false,
             ajax: {
-                url: `${BASE_URL}/formPay/getAll`,
+                url: `${BASE_URL}/getformpay`,
                 dataType: "json",
                 cache: false,
                 dataSrc: (data) => {
@@ -64,7 +64,7 @@ if ($('#formPay_index').length) {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/FormPay/insert`,
+                url: `${BASE_URL}/insertformpay`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {
@@ -105,7 +105,7 @@ if ($('#formPay_index').length) {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/FormPay/update`,
+                url: `${BASE_URL}/updateformpay`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {
@@ -142,7 +142,7 @@ if ($('#formPay_index').length) {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/FormPay/delete`,
+                url: `${BASE_URL}/deleteformpay`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {

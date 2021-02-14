@@ -1,14 +1,20 @@
 if ($('#orderService_searchClient').length) {
 
+    noData();
+
     $(document).on('keydown', function (event) {
 
         if (event.keyCode === 13) {
 
             let searchClient = document.getElementById('searchClient');
 
+            if (!searchClient.value)
+                return noData();
+
+
             $.ajax({
                 type: "GET",
-                url: `${BASE_URL}/Client/getClientByNameCpf/${searchClient.value}`,
+                url: `${BASE_URL}/getclientbynamecpf/${searchClient.value}`,
                 dataType: 'json',
                 error: (e) => {
                     $('#tableClients tbody').empty();
@@ -34,20 +40,27 @@ if ($('#orderService_searchClient').length) {
                 },
                 success: function (data) {
 
-                    $('#tableClients tbody').empty();
+                    if (data === null) {
+                        console.log('caiu aqui');
+                        noData();
+                    } else {
+                        $('#tableClients tbody').empty();
 
-                    data.forEach(element => {
+                        data.forEach(element => {
 
-                        var newRow = $("<tr>");
-                        var cols = "";
+                            var newRow = $("<tr>");
+                            var cols = "";
 
-                        cols += `<td>${element['cnpjCpf']}</td>`;
-                        cols += `<td>${element['name']}</td>`;
-                        cols += `<td class="text-center"><a class="btn btn-outline-info" href="${BASE_URL}/OrderService/newOrderService/${element['id']}" role="button">Nova OS</a></td>`;
+                            cols += `<td>${element['cnpjCpf']}</td>`;
+                            cols += `<td>${element['name']}</td>`;
+                            cols += `<td class="text-center"><a class="btn btn-outline-info" href="${BASE_URL}/neworderservice/${element['id']}" role="button">Nova OS</a></td>`;
 
-                        newRow.append(cols); $("#tableClients").append(newRow);
-                        return false;
-                    });
+                            newRow.append(cols); $("#tableClients").append(newRow);
+                            return false;
+                        });
+                    }
+
+
                 },
                 error: function (data) {
                     console.log(data);
@@ -55,4 +68,18 @@ if ($('#orderService_searchClient').length) {
             });
         }
     });
+
+    function noData() {
+
+        $('#tableClients tbody').empty();
+
+        var newRow = $("<tr>");
+        var cols = "";
+
+        cols += `<td colspan="2" class="text-center"> Sem informações </td>`;
+
+        newRow.append(cols); $("#tableClients").append(newRow);
+        return false;
+
+    }
 }

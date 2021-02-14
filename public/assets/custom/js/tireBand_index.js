@@ -10,7 +10,7 @@ if ($('#tireBand_index').length) {
             destroy: true,
             responsive: false,
             ajax: {
-                url: `${BASE_URL}/tireBand/getAll`,
+                url: `${BASE_URL}/gettireband`,
                 dataType: "json",
                 cache: false,
                 dataSrc: (data) => {
@@ -64,7 +64,7 @@ if ($('#tireBand_index').length) {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/tireBand/insert`,
+                url: `${BASE_URL}/inserttireband`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {
@@ -105,7 +105,7 @@ if ($('#tireBand_index').length) {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/tireBand/update`,
+                url: `${BASE_URL}/updatetireband`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {
@@ -142,7 +142,7 @@ if ($('#tireBand_index').length) {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/tireBand/delete`,
+                url: `${BASE_URL}/deletetireband`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {

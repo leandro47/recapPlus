@@ -48,7 +48,7 @@
                         <i class="fas fa-clipboard-list"></i>Ordem Serviço</a>
                     <ul class="list-unstyled navbar-mobile-sub__list js-sub-list">
                         <li>
-                            <a href="<?= base_url('newOrderService') ?>">Novo</a>
+                            <a href="<?= base_url('orderservice') ?>">Novo</a>
                         </li>
                         <li>
                             <a href="index2.html">Abertas</a>
@@ -79,16 +79,16 @@
                             <a href="<?= base_url('client') ?>">Cliente</a>
                         </li>
                         <li>
-                            <a href="<?= base_url('formPay') ?>">Forma de pagamento</a>
+                            <a href="<?= base_url('formpay') ?>">Forma de pagamento</a>
                         </li>
                         <li>
-                            <a href="<?= base_url('tireSize') ?>">Medida</a>
+                            <a href="<?= base_url('tiresize') ?>">Medida</a>
                         </li>
                         <li>
-                            <a href="<?= base_url('tireBand') ?>">Banda</a>
+                            <a href="<?= base_url('tireband') ?>">Banda</a>
                         </li>
                         <li>
-                            <a href="<?= base_url('tireBrand') ?>">Marca</a>
+                            <a href="<?= base_url('tirebrand') ?>">Marca</a>
                         </li>
                         <li>
                             <a href="index2.html">Metas Vendedor</a>
@@ -171,7 +171,7 @@
                         <i class="fas fa-clipboard-list"></i>Ordem Serviço</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="<?= base_url('newOrderService') ?>">Novo</a>
+                            <a href="<?= base_url('orderservice') ?>">Novo</a>
                         </li>
                         <li>
                             <a href="index2.html">Abertas</a>
@@ -202,16 +202,16 @@
                             <a href="<?= base_url('client') ?>">Cliente</a>
                         </li>
                         <li>
-                            <a href="<?= base_url('formPay') ?>">Forma de pagamento</a>
+                            <a href="<?= base_url('formpay') ?>">Forma de pagamento</a>
                         </li>
                         <li>
-                            <a href="<?= base_url('tireSize') ?>">Medida</a>
+                            <a href="<?= base_url('tiresize') ?>">Medida</a>
                         </li>
                         <li>
-                            <a href="<?= base_url('tireBand') ?>">Banda</a>
+                            <a href="<?= base_url('tireband') ?>">Banda</a>
                         </li>
                         <li>
-                            <a href="<?= base_url('tireBrand') ?>">Marca</a>
+                            <a href="<?= base_url('tirebrand') ?>">Marca</a>
                         </li>
                         <li>
                             <a href="index2.html">Metas Vendedor</a>

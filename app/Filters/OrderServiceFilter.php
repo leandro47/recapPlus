@@ -15,7 +15,7 @@ class OrderServiceFilter implements FilterInterface
         $idModule = 6;
 
         if (!UserServices::getPermission($idModule))
-            return redirect()->to(base_url('main/index/' . 'No alowed'));
+            return redirect()->to(base_url('main/' . 'No alowed'));
     }
 
     //--------------------------------------------------------------------

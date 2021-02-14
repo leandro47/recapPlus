@@ -10,7 +10,7 @@ if ($('#tireBrand_index').length) {
             destroy: true,
             responsive: false,
             ajax: {
-                url: `${BASE_URL}/tireBrand/getAll`,
+                url: `${BASE_URL}/gettirebrand`,
                 dataType: "json",
                 cache: false,
                 dataSrc: (data) => {
@@ -64,7 +64,7 @@ if ($('#tireBrand_index').length) {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/tireBrand/insert`,
+                url: `${BASE_URL}/inserttirebrand`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {
@@ -105,7 +105,7 @@ if ($('#tireBrand_index').length) {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/tireBrand/update`,
+                url: `${BASE_URL}/updatetirebrand`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {
@@ -142,7 +142,7 @@ if ($('#tireBrand_index').length) {
             var dados = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: `${BASE_URL}/tireBrand/delete`,
+                url: `${BASE_URL}/deletetirebrand`,
                 data: dados,
                 dataType: 'json',
                 success: function (data) {
